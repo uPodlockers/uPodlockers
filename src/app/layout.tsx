@@ -7,7 +7,7 @@ const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "upod smart lockers",
-  description: "Template created by Frontend Tribe",
+  description: "Solving last-mile delivery issues by making affordable smart parcel lockers",
 };
 
 export default function RootLayout({

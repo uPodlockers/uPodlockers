@@ -1,70 +1,55 @@
 import avatar1 from "@/assets/avatar-1.png";
 import avatar2 from "@/assets/avatar-2.png";
-import avatar3 from "@/assets/avatar-3.png";
-import avatar4 from "@/assets/avatar-4.png";
-import avatar5 from "@/assets/avatar-5.png";
-import avatar6 from "@/assets/avatar-6.png";
-import avatar7 from "@/assets/avatar-7.png";
-import avatar8 from "@/assets/avatar-8.png";
-import avatar9 from "@/assets/avatar-9.png";
 
 const testimonials = [
   {
-    text: "As a seasoned designer always on the lookout for innovative tools, Framer.com instantly grabbed my attention.",
+    text: "Stress-free package delivery",
     imageSrc: avatar1.src,
-    name: "Jamie Rivera",
-    username: "@jamietechguru00",
+    name: "Universities",
+    avatarImg: avatar1
   },
   {
-    text: "Our team's productivity has skyrocketed since we started using this tool. ",
+    text: "Stress-free package delivery",
     imageSrc: avatar2.src,
-    name: "Josh Smith",
-    username: "@jjsmith",
-  },
-  {
-    text: "This app has completely transformed how I manage my projects and deadlines.",
-    imageSrc: avatar3.src,
-    name: "Morgan Lee",
-    username: "@morganleewhiz",
-  },
-  {
-    text: "I was amazed at how quickly we were able to integrate this app into our workflow.",
-    imageSrc: avatar4.src,
-    name: "Casey Jordan",
-    username: "@caseyj",
-  },
-  {
-    text: "Planning and executing events has never been easier. This app helps me keep track of all the moving parts, ensuring nothing slips through the cracks.",
-    imageSrc: avatar5.src,
-    name: "Taylor Kim",
-    username: "@taylorkimm",
-  },
-  {
-    text: "The customizability and integration capabilities of this app are top-notch.",
-    imageSrc: avatar6.src,
-    name: "Riley Smith",
-    username: "@rileysmith1",
-  },
-  {
-    text: "Adopting this app for our team has streamlined our project management and improved communication across the board.",
-    imageSrc: avatar7.src,
-    name: "Jordan Patels",
-    username: "@jpatelsdesign",
-  },
-  {
-    text: "With this app, we can easily assign tasks, track progress, and manage documents all in one place.",
-    imageSrc: avatar8.src,
-    name: "Sam Dawson",
-    username: "@dawsontechtips",
-  },
-  {
-    text: "Its user-friendly interface and robust features support our diverse needs.",
-    imageSrc: avatar9.src,
-    name: "Casey Harper",
-    username: "@casey09",
+    name: "Residential Settings",
+    avatarImg: avatar2
   },
 ];
 
 export const Testimonials = () => {
-  return null;
+  return (
+    <section className="py-20 md:py-24">
+      <div className="container">
+        <h2 className="text-5xl md:text-6xl text-center tracking-tighter font-bold">Solutions</h2>
+        <p className="text-black text-lg md:text-xl text-center mt-5 tracking-tight max-w-sm mx-auto">
+          Here we present possible use cases of our smart parcel lockers.
+        </p>
+        <div className="overflow-hidden mt-10 [mask-image:linear-gradient(to_right,transparent,black_10%,black_80%,transparent)]">
+          <div className="flex gap-5">
+            {testimonials.map(testimonial => (
+              <div 
+                key={testimonial.name} 
+                className="border border-black/1 p-6 md:p-10 rounded-xl max-w-xs md:max-w-md flex-none relative"
+                style={{
+                  backgroundImage: `url(${testimonial.avatarImg.src})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  color: '#fff',
+                  height: '300px' // Adjust the height as needed
+                }}
+              >
+                <div className="absolute inset-0 bg-[rgba(140,69,244,0.5)] mix-blend-soft-light rounded-xl" />
+                <div className="relative z-10 flex flex-col justify-center h-full">
+                  <h3 className="text-2xl font-semibold">{testimonial.name}</h3> {/* Increased font size */}
+                  <div className="mt-4 text-lg tracking-tight"> {/* Increased margin for spacing */}
+                    {testimonial.text}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
