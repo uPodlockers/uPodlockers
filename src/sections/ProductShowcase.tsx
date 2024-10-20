@@ -1,3 +1,7 @@
 export const ProductShowcase = () => {
-  return "product showcase";
+  return <section>
+    <div className="container">
+        <div></div>
+    </div>  
+  </section>;
 };
