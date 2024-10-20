@@ -1,6 +1,6 @@
 export const Hero = () => {
   return (
-    <section>
+    <section className="pb-12">
       <div className="container">
         <div>
           <div className="text-small inline-flex border border-color-[#222]/10 px-3 py-1 rouned-lg tracking-tight">

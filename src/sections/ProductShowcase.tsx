@@ -1,3 +1,3 @@
 export const ProductShowcase = () => {
-  return null;
+  return "product showcase";
 };
