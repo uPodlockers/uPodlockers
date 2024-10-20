@@ -5,7 +5,7 @@ import MenuIcon from '@/assets/menu.svg';
 
 export const Header = () => {
   return (
-    <header className="sticky top-0">
+    <header className="sticky top-0 z-20">
       <div className="flex justify-center items-center py-1 bg-[#eaeefe] text-black text-small">
         <div className="inline-flex gap-1 items-center">
           <p>24*7 Accessible Parcel Lockers at your Service</p>

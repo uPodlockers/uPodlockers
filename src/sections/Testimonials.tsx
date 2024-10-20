@@ -1,5 +1,8 @@
+"use client";
 import avatar1 from "@/assets/avatar-1.png";
 import avatar2 from "@/assets/avatar-2.png";
+import Image from "next/image";
+import { motion } from "framer-motion"
 
 const testimonials = [
   {
@@ -25,8 +28,21 @@ export const Testimonials = () => {
           Here we present possible use cases of our smart parcel lockers.
         </p>
         <div className="overflow-hidden mt-10 [mask-image:linear-gradient(to_right,transparent,black_10%,black_80%,transparent)]">
-          <div className="flex gap-5">
-            {testimonials.map(testimonial => (
+          <motion.div 
+            initial={{
+              translateX: '-50%',
+            }}
+            animate={{
+              translateX: "0",
+            }}
+            transition={{
+              repeat: Infinity,
+              ease: "linear",
+              duration: 20,
+            }}
+            className="flex gap-5 flex-none"
+          >
+            {[...testimonials, ...testimonials].map(testimonial => (
               <div 
                 key={testimonial.name} 
                 className="border border-black/1 p-6 md:p-10 rounded-xl max-w-xs md:max-w-md flex-none relative"
@@ -47,7 +63,7 @@ export const Testimonials = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
