@@ -39,12 +39,12 @@ export const Header = () => {
 
               {/* Desktop Navigation Links */}
               <nav className="hidden md:flex gap-6 font-semibold text-white items-center">
-                <a href="#home">Home</a>
-                <a href="#products">Products</a>
-                <a href="#solutions">Solutions</a>
-                <a href="#company">Company</a>
-                <a href="#careers">Careers</a>
-                <a href="#contact">Contact Us</a>
+                <a href="#home" className="hover:text-blue-300 transition-colors duration-200">Home</a>
+                <a href="#products" className="hover:text-blue-300 transition-colors duration-200">Products</a>
+                <a href="#solutions" className="hover:text-blue-300 transition-colors duration-200">Solutions</a>
+                <a href="#company" className="hover:text-blue-300 transition-colors duration-200">Company</a>
+                <a href="#careers" className="hover:text-blue-300 transition-colors duration-200">Careers</a>
+                <a href="#contact" className="hover:text-blue-300 transition-colors duration-200">Contact Us</a>
               </nav>
             </div>
           </div>
@@ -70,12 +70,12 @@ export const Header = () => {
 
             {/* Navigation Links */}
             <nav className="flex flex-col items-center gap-6 font-semibold text-white">
-              <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
-              <a href="#products" onClick={() => setMenuOpen(false)}>Products</a>
-              <a href="#solutions" onClick={() => setMenuOpen(false)}>Solutions</a>
-              <a href="#company" onClick={() => setMenuOpen(false)}>Company</a>
-              <a href="#careers" onClick={() => setMenuOpen(false)}>Careers</a>
-              <a href="#contact" onClick={() => setMenuOpen(false)}>Contact Us</a>
+              <a href="#home" className="hover:text-blue-300 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Home</a>
+              <a href="#products" className="hover:text-blue-300 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Products</a>
+              <a href="#solutions" className="hover:text-blue-300 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Solutions</a>
+              <a href="#company" className="hover:text-blue-300 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Company</a>
+              <a href="#careers" className="hover:text-blue-300 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Careers</a>
+              <a href="#contact" className="hover:text-blue-300 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Contact Us</a>
             </nav>
           </div>
         </>

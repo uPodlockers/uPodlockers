@@ -6,4 +6,19 @@
     .logo-ticker-image {
         @apply h-8 w-auto;
     }
+
+    /* Menu link styling */
+    .menu-link {
+        @apply text-lg font-medium text-gray-700 hover:text-blue-700 cursor-pointer transition-colors;
+    }
+
+    /* Active section highlight */
+    .menu-link-active {
+        @apply text-blue-700 border-b-2 border-blue-700;
+    }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
 }

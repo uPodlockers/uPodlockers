@@ -4,9 +4,9 @@ import heroImage from "@/assets/hero-image.jpg"; // Replace with your actual ima
 
 export const Hero = () => {
   return (
-    <section className="min-h-screen flex flex-col md:flex-row relative">
+    <section className="min-h-screen flex flex-col md:flex-row relative px-4 md:px-16 lg:px-32 pt-0"> {/* Set padding top to 0 */}
       {/* Left Side: Text Content */}
-      <div className="flex-1 flex flex-col justify-center p-8 relative z-10">
+      <div className="flex-1 flex flex-col justify-center p-8 relative z-10 max-w-lg"> {/* Limit width */}
         {/* Badge */}
         <div className="text-small inline-flex border border-color-[#222]/10 px-3 py-1 rounded-lg tracking-tight">
           Now available nationwide!
