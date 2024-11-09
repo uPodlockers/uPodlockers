@@ -27,7 +27,7 @@ export const Footer = () => {
           <SocialYoutube />
         </div>
         <p className="mt-6">
-          &copy; 2024 uPOD Lockers, Inc. All rights reserved.
+          &copy; 2024 uPOD Lockers | Edelbox Solutions Pvt. Ltd. All rights reserved.
         </p>
       </div>
     </footer>

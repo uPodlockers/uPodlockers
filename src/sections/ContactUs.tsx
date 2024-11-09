@@ -38,7 +38,7 @@ export const ContactUs = () => {
           Contact Us
         </h2>
         <p className="text-lg text-center text-[#010D3E] mb-12">
-          Have questions? We&aposre here to help!
+          Have questions? We&apos;re here to help!
         </p>
 
         {/* Contact Form */}

@@ -24,7 +24,7 @@ export const Careers = () => {
           Careers at uPOD
         </h2>
         <p className="text-lg text-center text-gray-600 mb-12">
-          We&aposre building the future of parcel delivery. Join us on this journey. Email us your interest at info@upodlockers.com.
+          We&apos;re building the future of parcel delivery. Join us on this journey. Email us your interest at info@upodlockers.com.
         </p>
 
         {/* Job Positions List */}
