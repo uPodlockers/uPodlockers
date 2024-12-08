@@ -86,7 +86,7 @@ export const Testimonials = () => {
                   width: "250px", // Set a fixed width for images
                 }}
               >
-                <div className="absolute inset-0 bg-[rgba(140,69,244,0.5)] mix-blend-soft-light rounded-xl" />
+                <div className="absolute inset-0 bg-[rgba(140,69,244,0.75)] mix-blend-soft-light rounded-xl" />
                 <div className="relative z-10 flex flex-col justify-center h-full">
                   <h3 className="text-2xl font-semibold" style={{
                       textShadow: '0 0 10px rgba(0, 0, 0, 0.9)', // Adds a shadow effect for contrast
