@@ -3,22 +3,35 @@
 @tailwind utilities;
 
 @layer components {
-    .logo-ticker-image {
-        @apply h-8 w-auto;
-    }
+  .logo-ticker-image {
+    @apply h-8 w-auto;
+  }
 
-    /* Menu link styling */
-    .menu-link {
-        @apply text-lg font-medium text-gray-700 hover:text-blue-700 cursor-pointer transition-colors;
-    }
+  /* Menu link styling */
+  .menu-link {
+    @apply text-lg font-medium text-gray-700 hover:text-blue-700 cursor-pointer transition-colors;
+  }
 
-    /* Active section highlight */
-    .menu-link-active {
-        @apply text-blue-700 border-b-2 border-blue-700;
-    }
+  /* Active section highlight */
+  .menu-link-active {
+    @apply text-blue-700 border-b-2 border-blue-700;
+  }
 }
 
 /* Smooth scrolling for anchor links */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+/* Dropdown animation for smooth visibility */
+.dropdown {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+.menu-item:hover .dropdown {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s;
 }

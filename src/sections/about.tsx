@@ -3,6 +3,7 @@ import customizable from "@/assets/customizable_1.png";
 import twofour from "@/assets/twofour.png";
 import notification from "@/assets/notification.png";
 import security from "@/assets/security.png";
+import intuitive from "@/assets/intuitive.png";
 
 export const About = () => {
   return (
@@ -10,7 +11,7 @@ export const About = () => {
       {/* Main Heading */}
       <div className="text-center mb-12">
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-[#010D3E] mb-4">
-          Drop. Pickup. Store. Simplified.
+          Drop | Store | Pickup : Simplified.
         </h1>
         <p className="text-lg text-gray-800">
           uPOD smart parcels lockers that work for you, wherever you are - ensuring secure, contactless deliveries and pickup of your parcels, no matter your schedule.
@@ -49,11 +50,11 @@ export const About = () => {
         {/* Box 3 */}
         <div className="flex flex-col items-center p-6 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 bg-gray-50">
           <img
-            src={notification.src} // Replace with your image path
-            alt="Real-Time Notifications"
+            src={intuitive.src} // Replace with your image path
+            alt="Simple and Intuitive"
             className="w-12 h-12 mb-4"
           />
-          <h3 className="text-l font-semibold text-[#010D3E] text-center">Real-Time Notifications</h3>
+          <h3 className="text-l font-semibold text-[#010D3E] text-center">Simple and Intuitive</h3>
         </div>
 
         {/* Box 4 */}
