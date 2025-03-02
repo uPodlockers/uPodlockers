@@ -13,11 +13,11 @@ export const Footer = () => {
           <Image src={logo} height={40} alt="uPOD logo" />
         </div>
         <nav className="flex flex-col md:flex-row md:justify-center gap-6 mt-6">
-          <a href="#home" className="hover:text-blue-500">Home</a>
+          <a href="/" className="hover:text-blue-500">Home</a>
           <a href="#products" className="hover:text-blue-500">Products</a>
           <a href="#solutions" className="hover:text-blue-500">Solutions</a>
           <a href="#company" className="hover:text-blue-500">Company</a>
-          <a href="#careers" className="hover:text-blue-500">Careers</a>
+          {/* <a href="#careers" className="hover:text-blue-500">Careers</a> */}
           <a href="#contact" className="hover:text-blue-500">Contact Us</a>
         </nav>
         <div className="flex justify-center gap-6 mt-6">
