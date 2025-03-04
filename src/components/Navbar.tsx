@@ -6,10 +6,10 @@ import ArrowRight from "@/assets/arrow-right.svg";
 import Logo from "@/assets/logo-upod-white.png";
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
-import IconTodo from "@/assets/icon-todo.svg";
-import calendarImage from "@/assets/icon-calendar.svg";
-import remindersImage from "@/assets/icon-reminders.svg";
-import planningImage from "@/assets/icon-planning.svg";
+import HowItWorks from "@/assets/machinery-svgrepo-com.svg";
+import WhyUs from "@/assets/list-check-svgrepo-com.svg";
+import LockerSVG from "@/assets/cabinet-locker-lockers-school-decoraion-svgrepo-com.svg";
+import Calculator from "@/assets/calculator-svgrepo-com.svg";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
@@ -33,22 +33,22 @@ const navItems: NavItem[] = [
       {
         label: "How it Works?",
         link: "#",
-        iconImage: IconTodo,
+        // iconImage: HowItWorks,
       },
       {
         label: "Why us?",
         link: "#",
-        iconImage: calendarImage,
+        // iconImage: WhyUs,
       },
       {
         label: "Our Models",
         link: "#",
-        iconImage: remindersImage,
+        // iconImage: LockerSVG,
       },
       {
         label: "Capacity Calculator",
         link: "#",
-        iconImage: planningImage,
+        iconImage: Calculator,
       },
     ],
   },
@@ -106,6 +106,7 @@ export default function Navbar() {
   function closeSideMenu() {
     setSideMenue(false);
   }
+  console.log(navItems[1]);
 
   return (
     <>
@@ -147,15 +148,7 @@ export default function Navbar() {
                         className=" flex cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black "
                       >
                         {/* image */}
-                        {ch.iconImage && (
-                          <Image
-                            src={ch.iconImage}
-                            alt="item-icon"
-                            width={20}
-                            height={20}
-                            className="mr-3"
-                          />
-                        )}
+                        {ch.iconImage && <ch.iconImage />}
                         {/* item */}
                         <span className="whitespace-nowrap pl-3 ">
                           {ch.label}
@@ -252,7 +245,7 @@ function SingleNavItem(d: NavItem) {
               className=" flex cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black "
             >
               {/* image */}
-              {ch.iconImage && <Image src={ch.iconImage} alt="item-icon" />}
+              {ch.iconImage && <ch.iconImage />}
               {/* item */}
               <span className="whitespace-nowrap pl-3 ">{ch.label}</span>
             </Link>
