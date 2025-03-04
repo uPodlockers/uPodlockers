@@ -48,7 +48,7 @@ const navItems: NavItem[] = [
       {
         label: "Capacity Calculator",
         link: "#",
-        iconImage: Calculator,
+        // iconImage: Calculator,
       },
     ],
   },
@@ -65,18 +65,18 @@ const navItems: NavItem[] = [
         label: "About Us",
         link: "#",
       },
-      {
-        label: "News",
-        link: "#",
-      },
+      // {
+      //   label: "News",
+      //   link: "#",
+      // },
       {
         label: "Blogs",
         link: "#",
       },
-      {
-        label: "Case studies",
-        link: "#",
-      },
+      // {
+      //   label: "Case studies",
+      //   link: "#",
+      // },
       {
         label: "Our Team",
         link: "#",
@@ -120,7 +120,7 @@ export default function Navbar() {
         {/* left side  */}
         <section ref={animationParent} className="flex items-center gap-10">
           {/* logo */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 opacity-3">
             <Image src={Logo} alt="uPOD Logo" height={120} width={120} />
           </div>
           {isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu} />}
@@ -147,9 +147,9 @@ export default function Navbar() {
                         href={ch.link ?? "#"}
                         className=" flex cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black "
                       >
-                        {/* image */}
+
                         {ch.iconImage && <ch.iconImage />}
-                        {/* item */}
+ 
                         <span className="whitespace-nowrap pl-3 ">
                           {ch.label}
                         </span>
@@ -176,7 +176,7 @@ export default function Navbar() {
 
         <FiMenu
           onClick={openSideMenu}
-          className="cursor-pointer text-4xl md:hidden"
+          className="cursor-pointer text-4xl md:hidden text-white"
         />
       </div>
     </>

@@ -14,11 +14,12 @@ export const Footer = () => {
         </div>
         <nav className="flex flex-col md:flex-row md:justify-center gap-6 mt-6">
           <a href="/" className="hover:text-blue-500">Home</a>
-          <a href="#products" className="hover:text-blue-500">Products</a>
-          <a href="#solutions" className="hover:text-blue-500">Solutions</a>
-          <a href="#company" className="hover:text-blue-500">Company</a>
+          <a href="/product" className="hover:text-blue-500">Product</a>
+          <a href="/solutions" className="hover:text-blue-500">Solution</a>
+          <a href="/company" className="hover:text-blue-500">Company</a>
           {/* <a href="#careers" className="hover:text-blue-500">Careers</a> */}
-          <a href="#contact" className="hover:text-blue-500">Contact Us</a>
+          <a href="/contact" className="hover:text-blue-500">Contact Us</a>
+          <a href="/pricing" className="hover:text-blue-500">Pricing</a>
         </nav>
         <div className="flex justify-center gap-6 mt-6">
           <SocialX />
