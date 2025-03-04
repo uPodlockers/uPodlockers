@@ -6,9 +6,7 @@ import { Pricing } from "@/sections/Pricing";
 export default function Pricings() {
   return (
     <>
-      <Header />
       <Pricing />
-      <Footer />
     </>
   );
 }

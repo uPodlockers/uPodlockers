@@ -6,9 +6,7 @@ import ContactUs from "@/sections/ContactUs";
 export default function Contacts() {
   return (
     <>
-      <Header />
       <ContactUs />
-      <Footer />
     </>
   );
 }
