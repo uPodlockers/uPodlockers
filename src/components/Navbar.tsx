@@ -4,15 +4,12 @@ import Image from "next/image";
 import { useState } from "react";
 import ArrowRight from "@/assets/arrow-right.svg";
 import Logo from "@/assets/logo-upod-white.png";
-
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
-
 import IconTodo from "@/assets/icon-todo.svg";
 import calendarImage from "@/assets/icon-calendar.svg";
 import remindersImage from "@/assets/icon-reminders.svg";
 import planningImage from "@/assets/icon-planning.svg";
-
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
@@ -118,7 +115,7 @@ export default function Navbar() {
           <ArrowRight className="h-4 w-4 inline-flex justify-center items-center" />
         </div>
       </div>
-      <div className="mx-auto flex  w-full max-w-8xl justify-between px-4 py-5 bg-black">
+      <div className="mx-auto flex  w-full max-w-8xl justify-between px-4 py-5 bg-black relative z-30">
         {/* left side  */}
         <section ref={animationParent} className="flex items-center gap-10">
           {/* logo */}
@@ -131,7 +128,7 @@ export default function Navbar() {
               <Link
                 key={i}
                 href={d.link ?? "#"}
-                className="relative group  px-2 py-3 transition-all "
+                className="relative group px-2 py-3 transition-all"
               >
                 <p className="flex cursor-pointer items-center gap-2 text-neutral-400 group-hover:text-white ">
                   <span>{d.label}</span>
@@ -142,12 +139,12 @@ export default function Navbar() {
 
                 {/* dropdown */}
                 {d.children && (
-                  <div className="absolute   right-0   top-10 hidden w-auto  flex-col gap-1   rounded-lg bg-white py-3 shadow-md  transition-all group-hover:flex ">
+                  <div className="absolute right-0 top-10 hidden w-auto flex-col gap-1 rounded-lg bg-white py-3 shadow-md transition-all group-hover:flex z-50">
                     {d.children.map((ch, i) => (
                       <Link
                         key={i}
                         href={ch.link ?? "#"}
-                        className=" flex cursor-pointer items-center  py-1 pl-6 pr-8  text-neutral-400 hover:text-black  "
+                        className=" flex cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black "
                       >
                         {/* image */}
                         {ch.iconImage && (
@@ -160,7 +157,7 @@ export default function Navbar() {
                           />
                         )}
                         {/* item */}
-                        <span className="whitespace-nowrap   pl-3 ">
+                        <span className="whitespace-nowrap pl-3 ">
                           {ch.label}
                         </span>
                       </Link>
@@ -215,16 +212,6 @@ function MobileNav({ closeSideMenu }: { closeSideMenu: () => void }) {
             </SingleNavItem>
           ))}
         </div>
-
-        {/* <section className="  flex  flex-col   gap-8  mt-4 items-center">
-          <button className="h-fit text-neutral-400 transition-all hover:text-black/90">
-            Login
-          </button>
-
-          <button className="w-full  max-w-[200px]  rounded-xl border-2 border-neutral-400 px-4 py-2 text-neutral-400 transition-all hover:border-black hover:text-black/90">
-            Register
-          </button>
-        </section> */}
       </div>
     </div>
   );
@@ -257,17 +244,17 @@ function SingleNavItem(d: NavItem) {
 
       {/* dropdown */}
       {isItemOpen && d.children && (
-        <div className="  w-auto  flex-col gap-1   rounded-lg bg-white py-3   transition-all flex ">
+        <div className=" w-auto flex-col gap-1 rounded-lg bg-white py-3 transition-all flex z-50">
           {d.children.map((ch, i) => (
             <Link
               key={i}
               href={ch.link ?? "#"}
-              className=" flex cursor-pointer items-center  py-1 pl-6 pr-8  text-neutral-400 hover:text-black  "
+              className=" flex cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black "
             >
               {/* image */}
               {ch.iconImage && <Image src={ch.iconImage} alt="item-icon" />}
               {/* item */}
-              <span className="whitespace-nowrap   pl-3 ">{ch.label}</span>
+              <span className="whitespace-nowrap pl-3 ">{ch.label}</span>
             </Link>
           ))}
         </div>
