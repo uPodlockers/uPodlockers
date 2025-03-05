@@ -93,7 +93,7 @@ const navItems: NavItem[] = [
   },
   {
     label: "Pricing",
-    link: "/pricing",
+    link: "/contact",
   },
 ];
 

@@ -20,22 +20,22 @@ export const Hero = () => {
           relative z-10 max-w-lg text-left"
       >
         {/* Badge */}
-        <div
+        {/* <div
           className="text-small inline-flex border border-white/20 px-3 py-1 rounded-lg tracking-tight text-white"
           style={{
             textShadow: "2px 2px 8px rgba(0, 0, 0, 0.4)", // Shadow for badge
           }}
         >
           Now available nationwide!
-        </div>
+        </div> */}
 
         {/* Main Heading */}
         <h1
           className="text-4xl md:text-5xl font-black tracking-tighter 
-            bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text 
+            bg-gradient-to-b from-white to-white text-transparent bg-clip-text 
             mt-4 md:mt-6"
           style={{
-            textShadow: "2px 2px 10px rgba(0, 0, 0, 0.4)", // Strong shadow for main heading
+            textShadow: "2px 2px 10px rgba(185, 168, 168, 0.4)", // Strong shadow for main heading
           }}
         >
           Building India&apos;s First Agnostic Smart Parcel Locker Network
@@ -51,6 +51,11 @@ export const Hero = () => {
           Designed for businesses, communities, and individuals looking for a
           hassle-free parcel solution.
         </p>
+        <a href="#contact">
+          <button className="bg-blue-500 text-white px-9 py-2 rounded-lg hover:bg-blue-600">
+            Contact Us
+          </button>
+        </a>
       </div>
     </section>
   );
