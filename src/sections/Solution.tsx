@@ -8,7 +8,7 @@ import avatar6 from "@/assets/avatar-6.png"; // Add more avatars as needed
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const testimonials = [
+const solutions = [
   {
     text: "Stress-free package delivery",
     imageSrc: avatar2.src,
@@ -47,7 +47,7 @@ const testimonials = [
   },
 ];
 
-export const Testimonials = () => {
+export const Solution = () => {
   return (
     <section id="solutions" className="py-10 md:py-12">
         <h2 className="text-5xl font-bold tracking-tight text-[#010D3E] text-center mb-8">
@@ -73,7 +73,7 @@ export const Testimonials = () => {
             }}
             className="flex gap-5 flex-none"
           >
-            {[...testimonials, ...testimonials].map((testimonial) => (
+            {[...solutions, ...solutions].map((testimonial) => (
               <div
                 key={testimonial.name}
                 className="border border-black/1 p-6 md:p-10 rounded-xl max-w-xs md:max-w-md flex-none relative"

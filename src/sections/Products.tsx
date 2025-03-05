@@ -13,7 +13,7 @@ export const Products = () => {
   ]);
 
   return (
-    <section id="products" className="min-h-screen bg-white py-12 px-4 md:px-16 lg:px-32">
+    <section id="products" className="bg-white py-12 px-4 md:px-16 lg:px-32">
       <div className="container mx-auto max-w-5xl">
         {/* Section Title */}
         <h2 className="text-5xl font-bold tracking-tight text-center text-[#010D3E] mb-8">

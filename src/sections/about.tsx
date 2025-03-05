@@ -8,6 +8,9 @@ import intuitive from "@/assets/intuitive.png";
 export const About = () => {
   return (
     <section className="py-12 px-4 md:px-16 lg:px-32 bg-white">
+       <h2 className="text-5xl font-bold tracking-tight text-[#010D3E] text-center mb-8">
+          What We Solve ?
+        </h2>
       {/* Main Heading */}
       <div className="text-center mb-12">
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-[#010D3E] mb-4">
