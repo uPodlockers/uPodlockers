@@ -81,10 +81,10 @@ const navItems: NavItem[] = [
         label: "Our Team",
         link: "#",
       },
-      {
-        label: "Careers",
-        link: "#",
-      },
+      // {
+      //   label: "Careers",
+      //   link: "#",
+      // },
     ],
   },
   {
