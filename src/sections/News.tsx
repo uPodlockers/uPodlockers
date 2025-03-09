@@ -135,7 +135,7 @@ const CompanyNews = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Company News</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">News</h1>
         {newsData.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-gray-500 text-lg">No news articles available.</p>

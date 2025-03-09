@@ -76,8 +76,14 @@ export const Footer = () => {
                 <a href="/company/about" className="hover:text-blue-500 block">
                   About Us
                 </a>
+                <a href="/company/news" className="hover:text-blue-500 block">
+                  News
+                </a>
                 <a href="/company/blogs" className="hover:text-blue-500 block">
                   Blogs
+                </a>
+                <a href="/company/case_studies" className="hover:text-blue-500 block">
+                  Case Studies
                 </a>
                 <a href="/company/team" className="hover:text-blue-500 block">
                   Our Team

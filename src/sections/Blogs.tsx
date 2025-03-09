@@ -125,7 +125,7 @@ const BlogsPage = () => {
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-6">Company Blog</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-6">Blog posts</h1>
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <div className="relative flex-1">
               <input
