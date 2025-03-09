@@ -57,7 +57,7 @@ const ExecutivesTeam = () => {
   ];
 
   const Modal = ({ executive, onClose }) => (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div id="team" className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white p-8 rounded-lg max-w-2xl w-full mx-4">
         <div className="flex justify-between items-start mb-6">
           <div className="flex items-center space-x-4">
@@ -96,7 +96,7 @@ const ExecutivesTeam = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div id="team" className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">

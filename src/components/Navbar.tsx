@@ -63,23 +63,23 @@ const navItems: NavItem[] = [
     children: [
       {
         label: "About Us",
-        link: "/company",
+        link: "/company/#us",
       },
       {
         label: "News",
-        link: "/company",
+        link: "/company/#news",
       },
       {
         label: "Blogs",
-        link: "/company",
+        link: "/company/#blogs",
       },
       {
         label: "Case studies",
-        link: "/company",
+        link: "/company/#case_studies",
       },
       {
         label: "Our Team",
-        link: "/company",
+        link: "/company/#team",
       },
       // {
       //   label: "Careers",

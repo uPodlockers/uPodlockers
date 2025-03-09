@@ -11,7 +11,7 @@ export default function Company() {
   return (
     <>
       <AboutPage/>
-      <CompanyNews id='news'/>
+      <CompanyNews/>
 
       <BlogsPage />
       <CaseStudies />
