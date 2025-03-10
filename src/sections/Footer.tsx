@@ -61,13 +61,24 @@ export const Footer = () => {
                   Capacity Calculator
                 </a>
               </div>
-              <a href="/solutions" className="hover:text-blue-500">
-                Solutions
-              </a>
             </div>
           </div>
 
           <div className="flex flex-col w-full md:w-1/3">
+            <div>
+              <a href="/solutions" className="hover:text-blue-500">
+                Solutions
+              </a>
+              <div className="ml-4">
+                <a
+                  href="/solutions/how-it-works"
+                  className="hover:text-blue-500 block"
+                >
+                  How it Works?
+                </a>
+        
+              </div>
+            </div>
             <div>
               <a href="/company" className="hover:text-blue-500">
                 Company
@@ -140,8 +151,8 @@ export const Footer = () => {
             </a> */}
           </div>
           <div className="mt-6">
-            <p>Company Address: 1234 uPOD Street, City, Country</p>
-            <p>Phone: +1 (123) 456-7890</p>
+            <p>New Delhi, India</p>
+            <p>Phone: +91 9599 161 160</p>
           </div>
         </div>
       </div>
