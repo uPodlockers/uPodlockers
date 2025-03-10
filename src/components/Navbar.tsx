@@ -66,21 +66,22 @@ const navItems: NavItem[] = [
         link: "/company/#us",
       },
       {
-        label: "News",
-        link: "/company/#news",
-      },
-      {
         label: "Blogs",
         link: "/company/#blogs",
       },
-      {
-        label: "Case studies",
-        link: "/company/#case_studies",
-      },
-      {
-        label: "Our Team",
-        link: "/company/#team",
-      },
+      // {
+      //   label: "News",
+      //   link: "/company/#news",
+      // },
+
+      // {
+      //   label: "Case studies",
+      //   link: "/company/#case_studies",
+      // },
+      // {
+      //   label: "Our Team",
+      //   link: "/company/#team",
+      // },
       // {
       //   label: "Careers",
       //   link: "#",
@@ -91,10 +92,10 @@ const navItems: NavItem[] = [
     label: "Contact Us",
     link: "/contact",
   },
-  {
-    label: "Pricing",
-    link: "/contact",
-  },
+  // {
+  //   label: "Pricing",
+  //   link: "/contact",
+  // },
 ];
 
 export default function Navbar() {
@@ -147,9 +148,8 @@ export default function Navbar() {
                         href={ch.link ?? "#"}
                         className=" flex cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black "
                       >
-
                         {ch.iconImage && <ch.iconImage />}
- 
+
                         <span className="whitespace-nowrap pl-3 ">
                           {ch.label}
                         </span>

@@ -150,7 +150,7 @@ const AboutPage = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 px-4 md:px-8">
+      {/* <section className="py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 dark:text-white">
             Our Values
@@ -174,10 +174,10 @@ const AboutPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Timeline Section */}
-      <section className="py-20 px-4 md:px-8 bg-gray-50 dark:bg-gray-800">
+      {/* <section className="py-20 px-4 md:px-8 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 dark:text-white">
             Our Journey
@@ -204,7 +204,7 @@ const AboutPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Socials Section */}
       <section className="py-20 px-4 md:px-8">
@@ -213,12 +213,12 @@ const AboutPage = () => {
             Connect With Us
           </h2>
           <div className="flex justify-center space-x-6">
-            <a
+            {/* <a
               href="https://www.facebook.com"
               className="text-3xl text-gray-600 hover:text-blue-400 dark:text-gray-400 dark:hover:text-blue-400 transition-colors duration-300"
             >
               <SocialX className="cursor-pointer" />
-            </a>
+            </a> */}
             <a
               href="https://www.instagram.com"
               className="text-3xl text-gray-600 hover:text-pink-600 dark:text-gray-400 dark:hover:text-pink-400 transition-colors duration-300"
@@ -231,12 +231,12 @@ const AboutPage = () => {
             >
               <SocialLinkedIn className="cursor-pointer" />
             </a>
-            <a
+            {/* <a
               href="https://www.youtube.com"
               className="text-3xl text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors duration-300"
             >
               <SocialYoutube className="cursor-pointer" />
-            </a>
+            </a> */}
           </div>
         </div>
       </section>

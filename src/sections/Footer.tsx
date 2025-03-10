@@ -76,11 +76,12 @@ export const Footer = () => {
                 <a href="/company/#us" className="hover:text-blue-500 block">
                   About Us
                 </a>
-                <a href="/company/#news" className="hover:text-blue-500 block">
-                  News
-                </a>
                 <a href="/company/#blogs" className="hover:text-blue-500 block">
                   Blogs
+                </a>
+                {/* 
+                <a href="/company/#news" className="hover:text-blue-500 block">
+                  News
                 </a>
                 <a href="/company/#case_studies" className="hover:text-blue-500 block">
                   Case Studies
@@ -88,7 +89,7 @@ export const Footer = () => {
                 <a href="/company/#team" className="hover:text-blue-500 block">
                   Our Team
                 </a>
-                {/* <a
+                <a
                   href="/company/careers"
                   className="hover:text-blue-500 block"
                 >
@@ -96,25 +97,26 @@ export const Footer = () => {
                 </a> */}
               </div>
             </div>
-            <a href="/pricing" className="hover:text-blue-500">
-              Pricing
-            </a>
+
             <a href="/contact" className="hover:text-blue-500">
               Contact Us
             </a>
+            {/* <a href="/pricing" className="hover:text-blue-500">
+              Pricing
+            </a> */}
           </div>
         </div>
 
         {/* Right Section - Social Media Icons and Contact Info */}
         <div className="flex flex-col items-start w-full md:w-1/4 gap-6 justify-center items-center">
           <div className="flex gap-6">
-            <a
+            {/* <a
               href="https://www.facebook.com"
               target="_blank"
               rel="noopener noreferrer"
             >
               <SocialX className="cursor-pointer" />
-            </a>
+            </a> */}
             <a
               href="https://www.instagram.com"
               target="_blank"
@@ -129,13 +131,13 @@ export const Footer = () => {
             >
               <SocialLinkedIn className="cursor-pointer" />
             </a>
-            <a
+            {/* <a
               href="https://www.youtube.com"
               target="_blank"
               rel="noopener noreferrer"
             >
               <SocialYoutube className="cursor-pointer" />
-            </a>
+            </a> */}
           </div>
           <div className="mt-6">
             <p>Company Address: 1234 uPOD Street, City, Country</p>

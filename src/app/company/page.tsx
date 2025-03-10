@@ -11,11 +11,10 @@ export default function Company() {
   return (
     <>
       <AboutPage/>
-      <CompanyNews/>
-
+      {/* <CompanyNews/> */}
       <BlogsPage />
-      <CaseStudies />
-      <ExecutivesTeam/>
+      {/* <CaseStudies /> */}
+      {/* <ExecutivesTeam/> */}
     </>
   );
 }
