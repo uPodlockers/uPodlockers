@@ -47,7 +47,7 @@ const solutions = [
   },
 ];
 
-export const Solution = () => {
+export const SolutionComponent = () => {
   return (
     <section id="solutions" className="py-10 md:py-12">
         <h2 className="text-5xl font-bold tracking-tight text-[#010D3E] text-center mb-8">

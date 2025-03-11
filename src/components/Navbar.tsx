@@ -56,6 +56,33 @@ const navItems: NavItem[] = [
   {
     label: "Solution",
     link: "/solutions",
+    children: [
+      {
+        label: "Residential",
+        link: "/solutions/#residents",
+      },
+      {
+        label: "Universities",
+        link: "/solutions/#universities",
+      },
+      {
+        label: "Banks",
+        link: "/solutions/#banks",
+      },
+
+      {
+        label: "Offices",
+        link: "/solutions/#offices",
+      },
+      {
+        label: "E-Commerce",
+        link: "/solutions/#ecommerce",
+      },
+      {
+        label: "Hospitals",
+        link: "/solutions/#hospitals",
+      },
+    ],
   },
   {
     label: "Company",

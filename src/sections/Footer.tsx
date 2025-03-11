@@ -71,14 +71,45 @@ export const Footer = () => {
               </a>
               <div className="ml-4">
                 <a
-                  href="/solutions/how-it-works"
+                  href="/solutions/#residents"
                   className="hover:text-blue-500 block"
                 >
-                  How it Works?
+                  Residential
                 </a>
-        
+                <a
+                  href="/solutions/#universities"
+                  className="hover:text-blue-500 block"
+                >
+                  Universities
+                </a>
+                <a
+                  href="/solutions/#banks"
+                  className="hover:text-blue-500 block"
+                >
+                  Banks
+                </a>
+                <a
+                  href="/solutions/#offices"
+                  className="hover:text-blue-500 block"
+                >
+                  Offices
+                </a>
+                <a
+                  href="/solutions/#ecommerce"
+                  className="hover:text-blue-500 block"
+                >
+                  E-Commerce
+                </a>
+                <a
+                  href="/solutions/#hospitals"
+                  className="hover:text-blue-500 block"
+                >
+                  Hospitals
+                </a>
               </div>
             </div>
+          </div>
+          <div className="flex flex-col w-full md:w-1/3">
             <div>
               <a href="/company" className="hover:text-blue-500">
                 Company
