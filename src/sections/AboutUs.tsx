@@ -2,10 +2,7 @@
 import React from "react";
 import { FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 import { FiTarget, FiUsers, FiAward, FiHeart } from "react-icons/fi";
-import SocialX from "@/assets/social-x.svg";
-import SocialInsta from "@/assets/social-insta.svg";
-import SocialLinkedIn from "@/assets/social-linkedin.svg";
-import SocialYoutube from "@/assets/social-youtube.svg";
+
 
 const AboutPage = () => {
   const values = [
@@ -217,41 +214,6 @@ const AboutPage = () => {
           </div>
         </div>
       </section> */}
-
-      {/* Socials Section */}
-      <section className="py-20 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8 dark:text-white">
-            Connect With Us
-          </h2>
-          <div className="flex justify-center space-x-6">
-            {/* <a
-              href="https://www.facebook.com"
-              className="text-3xl text-gray-600 hover:text-blue-400 dark:text-gray-400 dark:hover:text-blue-400 transition-colors duration-300"
-            >
-              <SocialX className="cursor-pointer" />
-            </a> */}
-            <a
-              href="https://www.instagram.com"
-              className="text-3xl text-gray-600 hover:text-pink-600 dark:text-gray-400 dark:hover:text-pink-400 transition-colors duration-300"
-            >
-              <SocialInsta className="cursor-pointer" />
-            </a>
-            <a
-              href="https://www.linkedin.com"
-              className="text-3xl text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors duration-300"
-            >
-              <SocialLinkedIn className="cursor-pointer" />
-            </a>
-            {/* <a
-              href="https://www.youtube.com"
-              className="text-3xl text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors duration-300"
-            >
-              <SocialYoutube className="cursor-pointer" />
-            </a> */}
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
