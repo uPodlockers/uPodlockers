@@ -55,7 +55,10 @@ const AboutPage = () => {
   ];
 
   return (
-    <div id="us" className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div
+      id="us"
+      className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"
+    >
       {/* Hero Section */}
       <section
         className="relative h-screen flex items-center justify-center text-center px-4"
@@ -85,10 +88,13 @@ const AboutPage = () => {
               Who Are We
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              We are a passionate team of innovators, designers, and developers
-              committed to creating exceptional digital experiences. Our journey
-              began with a simple idea: to make technology more accessible and
-              meaningful for businesses worldwide.
+              We are a passionate team of innovators and developers committed to
+              creating an exceptional agnostic Smart parcel Locker Network. We
+              aim at transforming parcel deliveries with a convenient solution
+              designed for urban and high-density areas worldwide. Our shared
+              smart parcel lockers create an open network that enhances customer
+              convenience, reduces delivery inefficiencies, and benefits
+              consumers, retailers, carriers, and communities alike.
             </p>
           </div>
           <div className="flex-1">
@@ -111,9 +117,11 @@ const AboutPage = () => {
                 Our Vision
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                To be the global leader in innovative digital solutions, driving
-                technological advancement and creating positive impact across
-                industries.
+                Our vision is to revolutionize parcel delivery and access by
+                promoting a cleaner, greener environment through optimized
+                last-mile logistics. We aim to reduce emissions from failed
+                deliveries while supporting the Smart Cities initiative to
+                create a safe, sustainable, and smart world.
               </p>
             </div>
             <div className="flex-1">
@@ -132,9 +140,13 @@ const AboutPage = () => {
                 Our Mission
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                To deliver exceptional digital solutions that empower businesses
-                to thrive in the digital age, while maintaining the highest
-                standards of quality and innovation.
+                Our mission is to provide innovative, secure, and accessible
+                smart parcel lockers in every society, making them essential for
+                the growing e-commerce landscape. We aim to enhance delivery
+                convenience for consumers and seamlessly integrate with
+                e-commerce platforms, ensuring our lockers become a vital
+                resource for all online shoppers while improving the efficiency
+                of last-mile deliveries across the world.
               </p>
             </div>
             <div className="flex-1">

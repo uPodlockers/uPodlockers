@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -10,48 +9,59 @@ const FAQSection = () => {
 
   const faqData = [
     {
-      question: "How do I get started with your service?",
-      answer: "Getting started is easy! Simply create an account, complete your profile, and you'll have immediate access to all our features. Our onboarding process guides you through each step."
+      question: "How do smart parcel lockers work?",
+      answer:
+        "Once a package is delivered, the sender or delivery person places it in a locker. The recipient gets an instant notification with a QR or OTP to retrieve the package.",
     },
     {
-      question: "What payment methods do you accept?",
-      answer: "We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers. All payments are processed securely through our encrypted payment system."
+      question: "Who can use smart parcel lockers?",
+      answer:
+        "Anyone! Residents, businesses, and delivery personnel can use these lockers for secure and hassle-free parcel management.",
     },
     {
-      question: "Can I upgrade or downgrade my subscription?",
-      answer: "Yes, you can modify your subscription at any time. Changes will take effect at the start of your next billing cycle. There are no penalties for changing your plan."
+      question: "Are smart parcel lockers secure?",
+      answer:
+        "Yes, they are highly secure. Access is granted only through unique codes or OTPs, ensuring that only authorized individuals can retrieve the packages.",
+    },
+
+    {
+      question: "Can I use the locker if I’m not home?",
+      answer:
+        "Absolutely! The lockers are designed to store packages safely until you're ready to pick them up, even if you’re away.",
     },
     {
-      question: "What is your refund policy?",
-      answer: "We offer a 30-day money-back guarantee on all our services. If you're not satisfied, contact our support team within 30 days of purchase for a full refund."
+      question: "What types of parcels can be stored?",
+      answer:
+        "Smart lockers are designed to accommodate parcels of various sizes, from small packages to larger items.",
     },
     {
-      question: "How can I contact customer support?",
-      answer: "Our customer support team is available 24/7 via email, live chat, or phone. Premium members get priority support with guaranteed response times."
+      question: "Can delivery services use these lockers?",
+      answer:
+        "Yes! Delivery personnel can securely deposit packages into the lockers, ensuring smooth and safe handoffs..",
     },
     {
-      question: "Is my data secure with your service?",
-      answer: "Yes, we use industry-standard encryption and security protocols to protect your data. All information is stored in secure, encrypted databases with regular backups."
+      question: "What happens if I lose my OTP or access code?",
+      answer:
+        "Don’t worry—our support team is here to help you regain access securely.",
     },
     {
-      question: "Do you offer team or enterprise solutions?",
-      answer: "Yes, we provide customized enterprise solutions with additional features, dedicated support, and flexible pricing options for teams of all sizes."
-    },
-    {
-      question: "What happens to my data if I cancel my subscription?",
-      answer: "You'll have 30 days to download your data after cancellation. After this period, your data will be permanently deleted from our servers."
+      question: "Where can these lockers be installed?",
+      answer:
+        "Smart parcel lockers can be installed at residential complexes, offices, gyms, retail spaces, or any location where secure parcel handling is needed.",
     },
     {
       question: "Can I try the service before committing?",
-      answer: "Yes, we offer a 14-day free trial with full access to all features. No credit card is required to start your trial."
+      answer:
+        "Yes, we currently offer a 3-month free trial with full access to all features. No payment is required to start your trial.",
     },
     {
       question: "Do you provide training or onboarding support?",
-      answer: "Yes, we offer comprehensive documentation, video tutorials, and personalized onboarding sessions for new users. Enterprise clients receive dedicated training support."
-    }
+      answer:
+        "Yes, we offer comprehensive documentation, video tutorials, and personalized onboarding sessions for new enterprise clients. We also provide training staff for in-person support for the duration of the trial.",
+    },
   ];
 
-  const toggleAccordion = (index:any) => {
+  const toggleAccordion = (index: any) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
@@ -59,8 +69,12 @@ const FAQSection = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Frequently Asked Questions</h2>
-          <p className="mt-4 text-lg text-gray-600">Find answers to common questions about our services</p>
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+            Frequently Asked Questions
+          </h2>
+          <p className="mt-4 text-lg text-gray-600">
+            Find answers to common questions about our services
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
@@ -76,7 +90,9 @@ const FAQSection = () => {
                   aria-expanded={activeIndex === index}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <span className="font-medium text-gray-900">{faq.question}</span>
+                  <span className="font-medium text-gray-900">
+                    {faq.question}
+                  </span>
                   {activeIndex === index ? (
                     <FiChevronUp className="h-5 w-5 text-gray-500" />
                   ) : (
