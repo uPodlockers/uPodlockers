@@ -32,22 +32,22 @@ const navItems: NavItem[] = [
     children: [
       {
         label: "How it Works?",
-        link: "#",
+        link: "/product/#how_it_works",
         // iconImage: HowItWorks,
       },
       {
         label: "Why us?",
-        link: "#",
+        link: "/product/#why_us",
         // iconImage: WhyUs,
       },
       {
         label: "Our Models",
-        link: "#",
+        link: "/product/#models",
         // iconImage: LockerSVG,
       },
       {
         label: "Capacity Calculator",
-        link: "#",
+        link: "/product/#calculator",
         // iconImage: Calculator,
       },
     ],
