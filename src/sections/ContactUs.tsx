@@ -3,7 +3,7 @@
 "use client";
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-
+import swal from "sweetalert";
 export const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -17,22 +17,38 @@ export const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const service_id = process.env.NEXT_PUBLIC_SERVICE_ID;
+    const template_id = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+    const user_id = process.env.NEXT_PUBLIC_USER_ID;
 
     emailjs
       .send(
-        "YOUR_SERVICE_ID", // Replace with your Service ID
-        "YOUR_TEMPLATE_ID", // Replace with your Template ID
+        service_id,
+        template_id,
         formData,
-        "YOUR_USER_ID" // Replace with your User ID (public key)
+        user_id
       )
       .then(
         (response) => {
-          alert("Message sent successfully!");
+          swal({
+            title: "Success!",
+            text: "Message sent successfully!",
+            icon: "success",
+            timer: 5000,
+            buttons: false,
+          });
+
           setFormData({ name: "", email: "", message: "" });
         },
         (error) => {
           console.error("Failed to send message. Error:", error);
-          alert("Failed to send message. Please try again.");
+          swal({
+            title: "Error",
+            text: "Failed to send message. Please try again.",
+            icon: "error",
+            timer: 5000,
+            buttons: false,
+          });
         }
       );
   };

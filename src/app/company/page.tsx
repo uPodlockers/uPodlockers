@@ -12,7 +12,7 @@ export default function Company() {
     <>
       <AboutPage/>
       {/* <CompanyNews/> */}
-      <BlogsPage />
+      {/* <BlogsPage /> */}
       {/* <CaseStudies /> */}
       {/* <ExecutivesTeam/> */}
     </>

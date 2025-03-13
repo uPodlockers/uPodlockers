@@ -34,7 +34,7 @@ const sectorData = {
     ],
     epilogue:
       "Upgrade your office with a smarter, more organized approach to parcel management and asset transfers.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c",
+    image: "https://plus.unsplash.com/premium_photo-1670315264879-59cc6b15db5f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bgColor: "bg-gray-50",
     accentColor: "text-gray-600",
   },
@@ -115,29 +115,32 @@ const SolutionCard = memo(
     return (
       <div id={id} className="mx-4 my-8 md:mx-8 lg:mx-12">
         <div
-          className={`w-full max-w-7xl mx-auto p-6 rounded-xl shadow-lg ${data.bgColor} transition-all duration-300 hover:shadow-xl`}
+          className={`w-full max-w-7xl mx-auto p-6 rounded-xl shadow-lg ${data.bgColor} transition-all duration-300 hover:shadow-xl flex`}
           role="article"
         >
-          <div className="space-y-6">
-            <header className="flex items-start justify-between gap-4">
-              <div>
-                <h2 className={`text-3xl font-bold ${data.accentColor} mb-2`}>
-                  {data.title}
-                </h2>
-                <p className="text-lg italic text-gray-600 font-medium">
-                  {data.quote}
-                </p>
-              </div>
-              <img
-                src={data.image}
-                alt={`${sector} solution illustration`}
-                className="w-24 h-24 rounded-lg object-cover"
-                loading="lazy"
-                onError={(e) => {
-                  e.target.src =
-                    "https://images.unsplash.com/photo-1603366615917-1fa6dad5c4fa";
-                }}
-              />
+          {/* Left Image Section */}
+          <div className="w-1/3 flex items-center justify-center p-4">
+            <img
+              src={data.image}
+              alt={`${sector} solution illustration`}
+              className="w-full h-full object-cover"
+              loading="lazy"
+              onError={(e) => {
+                e.target.src =
+                  "https://images.unsplash.com/photo-1603366615917-1fa6dad5c4fa";
+              }}
+            />
+          </div>
+
+          {/* Right Content Section */}
+          <div className="w-2/3 p-4 space-y-6">
+            <header>
+              <h2 className={`text-3xl font-bold ${data.accentColor} mb-2`}>
+                {data.title}
+              </h2>
+              <p className="text-lg italic text-gray-600 font-medium">
+                {data.quote}
+              </p>
             </header>
 
             <div className="prose">
@@ -147,9 +150,7 @@ const SolutionCard = memo(
             </div>
 
             <div className="space-y-3">
-              <h3 className="text-xl font-semibold text-gray-800">
-                Key Benefits
-              </h3>
+              <h3 className="text-xl font-semibold text-gray-800">Key Benefits</h3>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {data.benefits.map((benefit, index) => (
                   <li
@@ -174,6 +175,7 @@ const SolutionCard = memo(
     );
   }
 );
+
 
 SolutionCard.displayName = "SolutionCard";
 

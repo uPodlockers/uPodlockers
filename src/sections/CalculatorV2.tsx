@@ -2,11 +2,12 @@
 import { useState } from "react";
 import { FaBox, FaBoxOpen, FaWarehouse } from "react-icons/fa";
 import { BsInfoCircle } from "react-icons/bs";
+import { da } from "date-fns/locale";
 
-const LockerCalculator = () => {
+const LockerCalculatorV2 = () => {
   const [formData, setFormData] = useState({
-    residents: "",
-    avgDeliveries: "",
+    flats: "",
+    // avgDeliveries: "",
   });
   const [errors, setErrors] = useState({});
   const [results, setResults] = useState(null);
@@ -14,12 +15,12 @@ const LockerCalculator = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.residents || formData.residents <= 0) {
-      newErrors.residents = "Please enter a valid number of residents";
+    if (!formData.flats || formData.flats <= 0) {
+      newErrors.flats = "Please enter a valid number of flats";
     }
-    if (!formData.avgDeliveries || formData.avgDeliveries < 0) {
-      newErrors.avgDeliveries = "Please enter a valid average delivery number";
-    }
+    // if (!formData.avgDeliveries || formData.avgDeliveries < 0) {
+    //   newErrors.avgDeliveries = "Please enter a valid average delivery number";
+    // }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -31,19 +32,46 @@ const LockerCalculator = () => {
       [name]: value,
     }));
   };
+  function getClosestRange(x) {
+    const ranges = [18, 36, 48];
+    
+    // If x is greater than or equal to the highest range, return "48 and above"
+    if (x >= 48) return 48;
+  
+    // Find the closest range by comparing differences
+    let closest = ranges[0];
+    let minDifference = Math.abs(x - ranges[0]);
+  
+    for (let i = 1; i < ranges.length; i++) {
+      const diff = Math.abs(x - ranges[i]);
+      if (diff < minDifference) {
+        closest = ranges[i];
+        minDifference = diff;
+      }
+    }
+    console.log(closest); 
+    return closest;
+  }
+  
 
+  
   const calculateLockers = () => {
     if (!validateForm()) return;
 
-    const dailyParcels = formData.residents * formData.avgDeliveries;
-    const lockerUtilization = dailyParcels * 0.5;
-    const peakDemand = Math.ceil(lockerUtilization * 1.1);
-
+    // const dailyParcels = formData.flats * formData.avgDeliveries;
+    // const lockerUtilization = dailyParcels * 0.5;
+    // const peakDemand = Math.ceil(lockerUtilization * 1.1);
+    console.log(formData.flats);
+    const dailyParcels = Math.ceil((formData.flats * 1) / 7); // if 1 parcel is ordered by each house in 1 week
+    console.log(dailyParcels);
+    const closest = getClosestRange(dailyParcels);
+    console.log(closest);
     const results = {
-      total: peakDemand,
-      small: Math.ceil(peakDemand * 0.6),
-      medium: Math.ceil(peakDemand * 0.3),
-      large: Math.ceil(peakDemand * 0.1),
+      total: dailyParcels,
+      bestLockerSystem: closest,
+      small: Math.ceil(closest * 0.3),
+      medium: Math.ceil(closest * 0.5),
+      large: Math.ceil(closest * 0.2),
     };
 
     setResults(results);
@@ -51,7 +79,10 @@ const LockerCalculator = () => {
   };
 
   const resetForm = () => {
-    setFormData({ residents: "", avgDeliveries: "" });
+    setFormData({
+      flats: "",
+      //  avgDeliveries: "" }
+    });
     setErrors({});
     setResults(null);
     setShowResults(false);
@@ -76,27 +107,27 @@ const LockerCalculator = () => {
           <div>
             <label
               className="block text-gray-700 text-sm font-semibold mb-2"
-              htmlFor="residents"
+              htmlFor="flats"
             >
-              Number of Residents
+              Number of flats
             </label>
             <input
               type="number"
-              id="residents"
-              name="residents"
-              value={formData.residents}
+              id="flats"
+              name="flats"
+              value={formData.flats}
               onChange={handleChange}
               className={`w-full px-4 py-2 rounded-lg border ${
-                errors.residents ? "border-red-500" : "border-gray-300"
+                errors.flats ? "border-red-500" : "border-gray-300"
               } focus:outline-none focus:ring-2 focus:ring-blue-500`}
-              placeholder="Enter total number of residents"
+              placeholder="Enter total number of flats"
             />
-            {errors.residents && (
-              <p className="mt-1 text-red-500 text-sm">{errors.residents}</p>
+            {errors.flats && (
+              <p className="mt-1 text-red-500 text-sm">{errors.flats}</p>
             )}
           </div>
 
-          <div>
+          {/* <div>
             <label
               className="block text-gray-700 text-sm font-semibold mb-2"
               htmlFor="avgDeliveries"
@@ -126,7 +157,7 @@ const LockerCalculator = () => {
                 {errors.avgDeliveries}
               </p>
             )}
-          </div>
+          </div> */}
 
           <div className="flex space-x-4">
             <button
@@ -150,6 +181,25 @@ const LockerCalculator = () => {
               Recommended Locker Distribution
             </h2>
 
+         
+            <div className="mt-6 p-4 bg-white rounded-lg shadow-md">
+              <h3 className="text-xl font-semibold text-blue-800 mb-2">
+                Total Lockers Required
+              </h3>
+              <p className="text-4xl font-bold text-blue-600">
+                {results.total}
+              </p>
+
+            </div>
+            <div className="mt-6 p-4 bg-white rounded-lg shadow-md">
+              <h3 className="text-xl font-semibold text-blue-800 mb-2">
+                Best locker-system for your use-case:
+              </h3>
+              <p className="text-4xl font-bold text-blue-600">
+                {results.bestLockerSystem} Unit Locker-system  
+              </p>
+
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white p-4 rounded-lg shadow-md">
                 <div className="flex items-center space-x-3 mb-2">
@@ -159,7 +209,7 @@ const LockerCalculator = () => {
                 <p className="text-3xl font-bold text-blue-600">
                   {results.small}
                 </p>
-                <p className="text-gray-600 text-sm">60% of total capacity</p>
+                <p className="text-gray-600 text-sm">30% of total capacity</p>
               </div>
 
               <div className="bg-white p-4 rounded-lg shadow-md">
@@ -170,7 +220,7 @@ const LockerCalculator = () => {
                 <p className="text-3xl font-bold text-blue-600">
                   {results.medium}
                 </p>
-                <p className="text-gray-600 text-sm">30% of total capacity</p>
+                <p className="text-gray-600 text-sm">50% of total capacity</p>
               </div>
 
               <div className="bg-white p-4 rounded-lg shadow-md">
@@ -181,21 +231,10 @@ const LockerCalculator = () => {
                 <p className="text-3xl font-bold text-blue-600">
                   {results.large}
                 </p>
-                <p className="text-gray-600 text-sm">10% of total capacity</p>
+                <p className="text-gray-600 text-sm">20% of total capacity</p>
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-white rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-blue-800 mb-2">
-                Total Lockers Required
-              </h3>
-              <p className="text-4xl font-bold text-blue-600">
-                {results.total}
-              </p>
-              <p className="text-gray-600 mt-2">
-                Based on peak demand calculation with 10% buffer
-              </p>
-            </div>
           </div>
         )}
       </div>
@@ -203,4 +242,4 @@ const LockerCalculator = () => {
   );
 };
 
-export default LockerCalculator;
+export default LockerCalculatorV2;

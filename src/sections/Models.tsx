@@ -10,6 +10,8 @@ import {
   FaMapMarkerAlt,
   FaBuilding,
 } from "react-icons/fa";
+import IndoorLocker from "@/assets/indoor_locker2.png";
+import OutdoorLocker from "@/assets/outdoor_locker.png";
 
 const LockerModels = () => {
   const [selectedModel, setSelectedModel] = useState(null);
@@ -19,7 +21,7 @@ const LockerModels = () => {
       quote:
         "Waiting for a package shouldn’t mean rearranging your entire day. No more asking neighbors for favors or No more leaving parcels with guards.",
       title: "Indoor Smart Parcel Lockers",
-      image: "https://images.unsplash.com/photo-1597733336794-12d05021d510",
+      image: IndoorLocker,
       features: [
         { icon: <FaKey />, text: "Secure Access Control" },
         { icon: <FaShieldAlt />, text: "24/7 Surveillance" },
@@ -40,7 +42,8 @@ const LockerModels = () => {
       quote:
         "Out running errands? Stuck in a meeting? Away on vacation ? Your deliveries shouldn’t have to wait for you—or rely on someone else.",
       title: "Outdoor Smart Parcel Lockers",
-      image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866",
+      image: OutdoorLocker,
+      // "https://images.unsplash.com/photo-1587293852726-70cdb56c2866",
       features: [
         { icon: <FaSun />, text: "Weather Resistant" },
         { icon: <FaClock />, text: "Instant Notifications" },
@@ -78,7 +81,7 @@ const LockerModels = () => {
      
       <div className="relative overflow-hidden rounded-lg mb-6 h-64">
         <img
-          src={data.image}
+          src={data.image.src}
           alt={data.title}
           className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
           onError={(e) => {

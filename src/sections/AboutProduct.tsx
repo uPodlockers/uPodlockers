@@ -134,7 +134,7 @@ const WhyUsSection = () => {
     <section id="why_us" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-          Why Us?
+          Why UPOD?
         </h2>
         <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
           {features.map((feature, index) => (

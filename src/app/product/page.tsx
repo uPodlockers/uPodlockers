@@ -4,7 +4,7 @@ import { Footer } from "@/sections/Footer";
 import ProductInfo from "@/sections/AboutProduct";
 import LockerModels from "@/sections/Models";
 import { About } from "@/sections/about";
-import LockerCalculator from "@/sections/Calculator";
+import LockerCalculatorV2 from "@/sections/CalculatorV2";
 
 export default function Product() {
   return (
@@ -13,7 +13,7 @@ export default function Product() {
       {/* <About/> */}
       <ProductInfo />
       <LockerModels/>
-      <LockerCalculator/>
+      <LockerCalculatorV2/>
     </>
   );
 }

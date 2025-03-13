@@ -78,13 +78,13 @@ const AboutPage = () => {
       </section>
 
       {/* Who Are We Section */}
-      <section className="py-20 px-4 md:px-8">
+      <section className="py-12 px-4 md-16 lg:px-32 bg-white">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1">
-            <h2 className="text-4xl font-bold mb-6 dark:text-white">
+            <h2 className="text-4xl font-bold mb-6 dark:text-black">
               Who Are We
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-lg text-gray-600 dark:text-black-300">
               We are a passionate team of innovators and developers committed to
               creating an exceptional agnostic Smart parcel Locker Network. We
               aim at transforming parcel deliveries with a convenient solution
@@ -94,26 +94,26 @@ const AboutPage = () => {
               consumers, retailers, carriers, and communities alike.
             </p>
           </div>
-          <div className="flex-1">
+          {/* <div className="flex-1">
             <img
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
               alt="Our Team"
               className="rounded-lg shadow-xl w-full"
               loading="lazy"
             />
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* Vision & Mission Section */}
-      <section className="py-20 px-4 md:px-8 bg-gray-50 dark:bg-gray-800">
+      <section className="py-12 px-4 md-16 lg:px-32 bg-white">
         <div className="max-w-7xl mx-auto space-y-20">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1">
-              <h2 className="text-4xl font-bold mb-6 dark:text-white">
+              <h2 className="text-4xl font-bold mb-6 dark:text-black">
                 Our Vision
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300">
+              <p className="text-lg text-gray-600 dark:text-black-300">
                 Our vision is to revolutionize parcel delivery and access by
                 promoting a cleaner, greener environment through optimized
                 last-mile logistics. We aim to reduce emissions from failed
@@ -131,12 +131,12 @@ const AboutPage = () => {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row-reverse items-center gap-12">
+          <div className="flex flex-col md:flex-row-reverse mt-12 mb-12 items-center gap-12">
             <div className="flex-1">
-              <h2 className="text-4xl font-bold mb-6 dark:text-white">
+              <h2 className="text-4xl font-bold mb-6 dark:text-black">
                 Our Mission
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300">
+              <p className="text-lg text-gray-600 dark:text-black-300">
                 Our mission is to provide innovative, secure, and accessible
                 smart parcel lockers in every society, making them essential for
                 the growing e-commerce landscape. We aim to enhance delivery

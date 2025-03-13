@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ArrowRight from "@/assets/arrow-right.svg";
 import Logo from "@/assets/logo-upod-white.png";
 import Link from "next/link";
@@ -36,7 +36,7 @@ const navItems: NavItem[] = [
         // iconImage: HowItWorks,
       },
       {
-        label: "Why us?",
+        label: "Why UPOD?",
         link: "/product/#why_us",
         // iconImage: WhyUs,
       },
@@ -125,33 +125,44 @@ const navItems: NavItem[] = [
   // },
 ];
 
+
 export default function Navbar() {
   const [animationParent] = useAutoAnimate();
   const [isSideMenuOpen, setSideMenue] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   function openSideMenu() {
     setSideMenue(true);
   }
+
   function closeSideMenu() {
     setSideMenue(false);
   }
-  console.log(navItems[1]);
+
+  if (!isMounted) return null;
 
   return (
     <>
       <div className="flex justify-center items-center py-1 bg-[#eaeefe] text-black text-small">
         <div className="inline-flex gap-1 items-center">
           <p>24*7 Accessible Parcel Lockers at your Service</p>
-          <ArrowRight className="h-4 w-4 inline-flex justify-center items-center" />
+          {/* Render this only when mounted */}
+          {isMounted && <ArrowRight className="h-4 w-4 inline-flex justify-center items-center" />}
         </div>
       </div>
       <div className="mx-auto flex  w-full max-w-8xl justify-between px-4 py-5 bg-black relative z-30">
-        {/* left side  */}
+        {/* left side */}
         <section ref={animationParent} className="flex items-center gap-10">
-          {/* logo */}
           <div className="flex items-center gap-3 opacity-3">
-            <Image src={Logo} alt="uPOD Logo" height={120} width={120} />
+            {isMounted && (
+              <Image src={Logo} alt="uPOD Logo" height={120} width={120} />
+            )}
           </div>
-          {isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu} />}
+          {isMounted && isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu} />}
           <div className="hidden md:flex items-center gap-4 transition-all">
             {navItems.map((d, i) => (
               <Link
@@ -166,7 +177,6 @@ export default function Navbar() {
                   )}
                 </p>
 
-                {/* dropdown */}
                 {d.children && (
                   <div className="absolute right-0 top-10 hidden w-auto flex-col gap-1 rounded-lg bg-white py-3 shadow-md transition-all group-hover:flex z-50">
                     {d.children.map((ch, i) => (
@@ -175,8 +185,6 @@ export default function Navbar() {
                         href={ch.link ?? "#"}
                         className=" flex cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black "
                       >
-                        {ch.iconImage && <ch.iconImage />}
-
                         <span className="whitespace-nowrap pl-3 ">
                           {ch.label}
                         </span>
@@ -187,19 +195,7 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          {/* navitems */}
         </section>
-
-        {/* right side data */}
-        {/* <section className=" hidden md:flex   items-center gap-8 ">
-          <button className="h-fit text-neutral-400 transition-all hover:text-black/90">
-            Login
-          </button>
-
-          <button className="h-fit rounded-xl border-2 border-neutral-400 px-4 py-2 text-neutral-400 transition-all hover:border-black hover:text-black/90">
-            Register
-          </button>
-        </section> */}
 
         <FiMenu
           onClick={openSideMenu}

@@ -4,6 +4,7 @@ import SocialX from "@/assets/social-x.svg";
 import SocialInsta from "@/assets/social-insta.svg";
 import SocialLinkedIn from "@/assets/social-linkedin.svg";
 import SocialYoutube from "@/assets/social-youtube.svg";
+import Logo from "@/assets/logo-upod-white.png";
 
 export const Footer = () => {
   return (
@@ -11,7 +12,7 @@ export const Footer = () => {
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         {/* Left Section - Subscribe Input and Links */}
         <div className="flex flex-col w-full md:w-1/4 gap-3">
-          <div className="flex gap-3 flex-col">
+          {/* <div className="flex gap-3 flex-col">
             <input
               type="email"
               placeholder="Enter your email"
@@ -20,8 +21,11 @@ export const Footer = () => {
             <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">
               Subscribe
             </button>
+          </div> */}
+          <div className="flex gap-2 flex-col">
+            <Image src={Logo} alt="uPOD Logo" height={160} width={160} />
           </div>
-          <div className="flex flex-col justify-between mt-1">
+          <div className="flex flex-col justify-between mt-1 ml-9">
             <a href="/" className="hover:text-blue-500">
               Privacy Policy
             </a>
@@ -52,7 +56,7 @@ export const Footer = () => {
                   href="/product/#why_us"
                   className="hover:text-blue-500 block"
                 >
-                  Why Us?
+                  Why UPOD?
                 </a>
                 <a
                   href="/product/#models"
