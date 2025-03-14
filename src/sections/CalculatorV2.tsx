@@ -33,10 +33,10 @@ const LockerCalculatorV2 = () => {
     }));
   };
   function getClosestRange(x) {
-    const ranges = [18, 36, 48];
+    const ranges = [18, 24,30,36,48,54];
     
     // If x is greater than or equal to the highest range, return "48 and above"
-    if (x >= 48) return 48;
+    if (x >= 54) return 54;
   
     // Find the closest range by comparing differences
     let closest = ranges[0];
@@ -44,7 +44,7 @@ const LockerCalculatorV2 = () => {
   
     for (let i = 1; i < ranges.length; i++) {
       const diff = Math.abs(x - ranges[i]);
-      if (diff < minDifference) {
+      if (diff <= minDifference) {
         closest = ranges[i];
         minDifference = diff;
       }
@@ -62,7 +62,7 @@ const LockerCalculatorV2 = () => {
     // const lockerUtilization = dailyParcels * 0.5;
     // const peakDemand = Math.ceil(lockerUtilization * 1.1);
     console.log(formData.flats);
-    const dailyParcels = Math.ceil((formData.flats * 1) / 7); // if 1 parcel is ordered by each house in 1 week
+    const dailyParcels = Math.floor((formData.flats * 1) / 7); // if 1 parcel is ordered by each house in 1 week
     console.log(dailyParcels);
     const closest = getClosestRange(dailyParcels);
     console.log(closest);
