@@ -190,7 +190,7 @@ const LockerCalculatorV2 = () => {
             </h2>
 
          
-            <div className="mt-6 p-4 bg-white rounded-lg shadow-md">
+            {/* <div className="mt-6 p-4 bg-white rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-blue-800 mb-2">
                 Total Lockers Required
               </h3>
@@ -198,7 +198,7 @@ const LockerCalculatorV2 = () => {
                 {results.total}
               </p>
 
-            </div>
+            </div> */}
             <div className="mt-6 p-4 bg-white rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-blue-800 mb-2">
                 Best locker-system for your use-case:

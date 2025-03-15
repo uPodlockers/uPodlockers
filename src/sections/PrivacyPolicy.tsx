@@ -132,13 +132,13 @@ const PrivacyPolicy = () => {
             <h1 className="text-3xl font-bold text-gray-800">Privacy Policy</h1>
           </div>
           <div className="flex space-x-4">
-            <button
+            {/* <button
               onClick={handlePrint}
               className="flex items-center px-4 py-2 text-sm text-gray-600 hover:text-gray-800 transition-colors"
               aria-label="Print Privacy policy"
             >
               <FaPrint className="mr-2" /> Print
-            </button>
+            </button> */}
             <button
               onClick={handleCopyToClipboard}
               className="flex items-center px-4 py-2 text-sm text-gray-600 hover:text-gray-800 transition-colors"
