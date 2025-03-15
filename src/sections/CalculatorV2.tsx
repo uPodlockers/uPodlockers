@@ -33,12 +33,19 @@ const LockerCalculatorV2 = () => {
     }));
   };
   function getClosestRange(x) {
-    const ranges = [18, 24,30,36,48,54];
     
     // If x is greater than or equal to the highest range, return "48 and above"
     if (x >= 54) return 54;
-  
+    else if (x >= 48 && x < 54) return 54;
+    else if (x >= 36 && x < 48) return 48;
+    else if (x >= 24 && x < 36) return 36;
+    else if (x >= 18 && x < 24) return 24;
+    else if (x <= 18) return 18
+
     // Find the closest range by comparing differences
+    /*
+    // const ranges = [18, 24,30,36,48,54];
+
     let closest = ranges[0];
     let minDifference = Math.abs(x - ranges[0]);
   
@@ -51,6 +58,7 @@ const LockerCalculatorV2 = () => {
     }
     console.log(closest); 
     return closest;
+    */
   }
   
 

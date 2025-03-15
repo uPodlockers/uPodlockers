@@ -26,10 +26,10 @@ export const Footer = () => {
             <Image src={Logo} alt="uPOD Logo" height={160} width={160} />
           </div>
           <div className="flex flex-col justify-between mt-1 ml-9">
-            <a href="/" className="hover:text-blue-500">
+            <a href="/privacy_policy" className="hover:text-blue-500">
               Privacy Policy
             </a>
-            <a href="/" className="hover:text-blue-500">
+            <a href="/terms_of_use" className="hover:text-blue-500">
               Terms of Use
             </a>
           </div>
