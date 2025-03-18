@@ -57,7 +57,7 @@ const BlogsPage: React.FC = () => {
     }, 1500);
   }, []);
 
-  const categories = ["all", ...new Set(mockBlogs.map(blog => blog.category))];
+  const categories = ["all", ...Array.from(new Set(mockBlogs.map(blog => blog.category)))];
 
   const filteredBlogs = blogs
     .filter(blog => selectedCategory === "all" || blog.category === selectedCategory)

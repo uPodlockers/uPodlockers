@@ -1,22 +1,39 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";  // Use Image from next/image
 import {
   FaKey,
   FaShieldAlt,
   FaClock,
   FaSun,
-  FaSnowflake,
   FaUserClock,
-  FaMapMarkerAlt,
   FaBuilding,
 } from "react-icons/fa";
 import IndoorLocker from "@/assets/indoor_locker2.png";
 import OutdoorLocker from "@/assets/outdoor_locker.png";
+import type { StaticImageData } from 'next/image';
+
+
+type ModelType = "indoor" | "outdoor";
+
+interface Feature {
+  icon: JSX.Element;
+  text: string;
+}
+
+interface ModelData {
+  quote: string;
+  title: string;
+  image: StaticImageData;  // Type for imported images
+  features: Feature[];
+  environments: string[];
+  description: string;
+}
 
 const LockerModels = () => {
-  const [selectedModel, setSelectedModel] = useState(null);
+  const [selectedModel, setSelectedModel] = useState<ModelType | null>(null);
 
-  const models = {
+  const models: Record<ModelType, ModelData> = {
     indoor: {
       quote:
         "Waiting for a package shouldn’t mean rearranging your entire day. No more asking neighbors for favors or No more leaving parcels with guards.",
@@ -43,13 +60,10 @@ const LockerModels = () => {
         "Out running errands? Stuck in a meeting? Away on vacation ? Your deliveries shouldn’t have to wait for you—or rely on someone else.",
       title: "Outdoor Smart Parcel Lockers",
       image: OutdoorLocker,
-      // "https://images.unsplash.com/photo-1587293852726-70cdb56c2866",
       features: [
         { icon: <FaSun />, text: "Weather Resistant" },
         { icon: <FaClock />, text: "Instant Notifications" },
-        // { icon: <FaSnowflake />, text: "Temperature Control" },
         { icon: <FaUserClock />, text: "24/7 Accessibility" },
-        // { icon: <FaMapMarkerAlt />, text: "GPS Tracking" },
       ],
       environments: [
         "Retail stores",
@@ -63,9 +77,9 @@ const LockerModels = () => {
     },
   };
 
-  const ModelCard = ({ type, data }) => (
+  const ModelCard = ({ type, data }: { type: ModelType; data: ModelData }) => (
     <div
-      className={`p-6 rounded-xl transition-all duration-300 ${
+      className={`p-6 rounded-xl transition-all duration-300 cursor-pointer ${
         selectedModel === type ? "scale-105" : "hover:scale-102"
       } ${
         type === "indoor"
@@ -73,36 +87,28 @@ const LockerModels = () => {
           : "bg-gradient-to-br from-green-50 to-slate-100"
       }`}
       onClick={() => setSelectedModel(type)}
-      onKeyPress={(e) => e.key === "Enter" && setSelectedModel(type)}
+      onKeyDown={(e) => e.key === "Enter" && setSelectedModel(type)}
       tabIndex={0}
       role="button"
       aria-label={`${data.title} details`}
     >
-     
       <div className="relative overflow-hidden rounded-lg mb-6 h-64">
-        <img
-          src={data.image.src}
+        <Image
+          src={data.image}
           alt={data.title}
-          className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
-          onError={(e) => {
-            e.target.src =
-              "https://images.unsplash.com/photo-1586769852044-692d6e3703f0";
-            e.target.alt = "Fallback locker image";
-          }}
+          layout="fill"
+          objectFit="cover"
+          className="transform hover:scale-110 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
       </div>
 
       <h2 className="text-2xl font-bold mb-4 text-gray-800">{data.title}</h2>
-      <p className="text-gray-600 text-sm leading-relaxed mb-6">
-        {data.quote}
-      </p>
+      <p className="text-gray-600 text-sm leading-relaxed mb-6">{data.quote}</p>
+
       <div className="grid grid-cols-2 gap-4 mb-6">
         {data.features.map((feature, index) => (
-          <div
-            key={index}
-            className="flex items-center space-x-2 text-gray-700"
-          >
+          <div key={index} className="flex items-center space-x-2 text-gray-700">
             <span
               className={`text-xl ${
                 type === "indoor" ? "text-blue-600" : "text-green-600"
@@ -133,19 +139,7 @@ const LockerModels = () => {
         </div>
       </div>
 
-      <p className="text-gray-600 text-sm leading-relaxed">
-        {data.description}
-      </p>
-
-      {/* <button
-        className={`mt-6 w-full py-3 rounded-lg font-semibold text-white transition-colors ${
-          type === "indoor"
-            ? "bg-blue-600 hover:bg-blue-700"
-            : "bg-green-600 hover:bg-green-700"
-        }`}
-      >
-        Learn More
-      </button> */}
+      <p className="text-gray-600 text-sm leading-relaxed">{data.description}</p>
     </div>
   );
 

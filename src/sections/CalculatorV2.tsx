@@ -2,79 +2,64 @@
 import { useState } from "react";
 import { FaBox, FaBoxOpen, FaWarehouse } from "react-icons/fa";
 import { BsInfoCircle } from "react-icons/bs";
-import { da } from "date-fns/locale";
 
-const LockerCalculatorV2 = () => {
-  const [formData, setFormData] = useState({
+interface FormData {
+  flats: string;
+}
+
+interface Errors {
+  flats?: string;
+}
+
+interface Results {
+  total: number;
+  bestLockerSystem: number;
+  small: number;
+  medium: number;
+  large: number;
+}
+
+const LockerCalculatorV2: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
     flats: "",
-    // avgDeliveries: "",
   });
-  const [errors, setErrors] = useState({});
-  const [results, setResults] = useState(null);
+  const [errors, setErrors] = useState<Errors>({});
+  const [results, setResults] = useState<Results | null>(null);
   const [showResults, setShowResults] = useState(false);
 
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.flats || formData.flats <= 0) {
+  const validateForm = (): boolean => {
+    const newErrors: Errors = {};
+    if (!formData.flats || Number(formData.flats) <= 0) {
       newErrors.flats = "Please enter a valid number of flats";
     }
-    // if (!formData.avgDeliveries || formData.avgDeliveries < 0) {
-    //   newErrors.avgDeliveries = "Please enter a valid average delivery number";
-    // }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
-  function getClosestRange(x) {
-    
-    // If x is greater than or equal to the highest range, return "48 and above"
+
+  const getClosestRange = (x: number): number => {
     if (x >= 54) return 54;
     else if (x >= 48 && x < 54) return 54;
     else if (x >= 36 && x < 48) return 48;
     else if (x >= 24 && x < 36) return 36;
     else if (x >= 18 && x < 24) return 24;
-    else if (x <= 18) return 18
+    else return 18;
+  };
 
-    // Find the closest range by comparing differences
-    /*
-    // const ranges = [18, 24,30,36,48,54];
-
-    let closest = ranges[0];
-    let minDifference = Math.abs(x - ranges[0]);
-  
-    for (let i = 1; i < ranges.length; i++) {
-      const diff = Math.abs(x - ranges[i]);
-      if (diff <= minDifference) {
-        closest = ranges[i];
-        minDifference = diff;
-      }
-    }
-    console.log(closest); 
-    return closest;
-    */
-  }
-  
-
-  
   const calculateLockers = () => {
     if (!validateForm()) return;
 
-    // const dailyParcels = formData.flats * formData.avgDeliveries;
-    // const lockerUtilization = dailyParcels * 0.5;
-    // const peakDemand = Math.ceil(lockerUtilization * 1.1);
-    console.log(formData.flats);
-    const dailyParcels = Math.floor((formData.flats * 1) / 7); // if 1 parcel is ordered by each house in 1 week
-    console.log(dailyParcels);
+    const dailyParcels = Math.floor((Number(formData.flats) * 1) / 7);
     const closest = getClosestRange(dailyParcels);
-    console.log(closest);
-    const results = {
+
+    const calculatedResults: Results = {
       total: dailyParcels,
       bestLockerSystem: closest,
       small: Math.ceil(closest * 0.3),
@@ -82,25 +67,19 @@ const LockerCalculatorV2 = () => {
       large: Math.ceil(closest * 0.2),
     };
 
-    setResults(results);
+    setResults(calculatedResults);
     setShowResults(true);
   };
 
   const resetForm = () => {
-    setFormData({
-      flats: "",
-      //  avgDeliveries: "" }
-    });
+    setFormData({ flats: "" });
     setErrors({});
     setResults(null);
     setShowResults(false);
   };
 
   return (
-    <div
-      id="calculator"
-      className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-4 flex items-center justify-center"
-    >
+    <div id="calculator" className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-4 flex items-center justify-center">
       <div className="w-full max-w-4xl bg-white rounded-xl shadow-lg p-8 space-y-12">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-blue-800 mb-2">

@@ -2,8 +2,16 @@
 import React, { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
+interface CaseStudy {
+  id: number;
+  title: string;
+  image: string;
+  description: string;
+  fullDescription: string;
+}
+
 const CaseStudies = () => {
-  const [selectedCase, setSelectedCase] = useState(null);
+  const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null);
 
   const caseStudies = [
     {
@@ -75,7 +83,7 @@ const CaseStudies = () => {
                   {study.description}
                 </p>
                 <button
-                  onClick={() => setSelectedCase(study)}
+                  onClick={() => setSelectedCase(study as any)}
                   className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200"
                 >
                   Read More <FaArrowRight className="ml-2" />

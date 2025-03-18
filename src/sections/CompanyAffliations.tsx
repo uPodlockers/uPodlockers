@@ -1,8 +1,17 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FiExternalLink } from "react-icons/fi";
 
-const affiliations = [
+interface Affiliation {
+  id: number;
+  name: string;
+  logo: string;
+  websiteUrl: string;
+  description: string;
+  year: number;
+}
+
+const affiliations: Affiliation[] = [
   {
     id: 1,
     name: "Startup India",
@@ -29,24 +38,23 @@ const affiliations = [
   }
 ];
 
-const AffiliationCard = ({ affiliation }) => {
+interface AffiliationCardProps {
+  affiliation: Affiliation;
+}
+
+const AffiliationCard: React.FC<AffiliationCardProps> = ({ affiliation }) => {
   const [imgSrc, setImgSrc] = useState(affiliation.logo);
 
   const handleImageError = () => {
     setImgSrc("https://images.unsplash.com/photo-1572177812156-58036aae439c");
   };
 
-  const handleClick = () => {
-    window.open(affiliation.websiteUrl, "_blank", "noopener,noreferrer");
-  };
-
   return (
-    <div
-      className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden"
-      role="button"
-      tabIndex={0}
-      onClick={handleClick}
-      onKeyDown={(e) => e.key === "Enter" && handleClick()}
+    <a
+      href={affiliation.websiteUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden block"
     >
       <div className="relative h-48 w-full">
         <img
@@ -71,11 +79,11 @@ const AffiliationCard = ({ affiliation }) => {
           </span>
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 
-const CompanyAffiliations = () => {
+const CompanyAffiliations: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">

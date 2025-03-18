@@ -92,10 +92,10 @@ const navItems: NavItem[] = [
         label: "About Us",
         link: "/company/#us",
       },
-      {
-        label: "Blogs",
-        link: "/company/#blogs",
-      },
+      // {
+      //   label: "Blogs",
+      //   link: "/company/#blogs",
+      // },
       // {
       //   label: "News",
       //   link: "/company/#news",

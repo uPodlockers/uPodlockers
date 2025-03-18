@@ -128,10 +128,11 @@ export const Footer = () => {
                 <a href="/company/#us" className="hover:text-blue-500 block">
                   About Us
                 </a>
+                {/* 
                 <a href="/company/#blogs" className="hover:text-blue-500 block">
                   Blogs
                 </a>
-                {/* 
+                
                 <a href="/company/#news" className="hover:text-blue-500 block">
                   News
                 </a>

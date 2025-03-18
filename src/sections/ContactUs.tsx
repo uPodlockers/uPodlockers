@@ -4,38 +4,54 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import swal from "sweetalert";
-export const ContactUs = () => {
-  const [formData, setFormData] = useState({
+
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+
+const ContactUs: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const service_id = process.env.NEXT_PUBLIC_SERVICE_ID;
-    const template_id = process.env.NEXT_PUBLIC_TEMPLATE_ID;
-    const user_id = process.env.NEXT_PUBLIC_USER_ID;
 
-    emailjs
-      .send(
-        service_id,
-        template_id,
-        formData,
-        user_id
-      )
+    const service_id = process.env.NEXT_PUBLIC_SERVICE_ID || "";
+    const template_id = process.env.NEXT_PUBLIC_TEMPLATE_ID || "";
+    const user_id = process.env.NEXT_PUBLIC_USER_ID || "";
+
+    if (!service_id || !template_id || !user_id) {
+      console.error("Missing EmailJS environment variables.");
+      swal({
+        title: "Error",
+        text: "Email service configuration is missing. Please try again later.",
+        icon: "error",
+        timer: 5000,
+        buttons: false as any,
+      });
+      return;
+    }
+
+    emailjs.send(service_id, template_id, { ...formData }, user_id)
       .then(
-        (response) => {
+        () => {
           swal({
             title: "Success!",
             text: "Message sent successfully!",
             icon: "success",
             timer: 5000,
-            buttons: false,
+            buttons: false as any,
           });
 
           setFormData({ name: "", email: "", message: "" });
@@ -47,7 +63,7 @@ export const ContactUs = () => {
             text: "Failed to send message. Please try again.",
             icon: "error",
             timer: 5000,
-            buttons: false,
+            buttons: false as any,
           });
         }
       );
@@ -56,14 +72,14 @@ export const ContactUs = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col justify-center bg-[] bg-cover bg-center py-12 px-4 md:px-16 lg:px-32"
+      className="min-h-screen flex flex-col justify-center py-12 px-4 md:px-16 lg:px-32 bg-cover bg-center"
     >
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-5xl font-bold tracking-tight text-[#010D3E] text-center mb-8">
           Contact Us
         </h2>
         <p className="text-lg text-center text-[#010D3E] mb-12">
-          Have questions? or want to get a quote? We&apos;re here to help!
+          Have questions or want to get a quote? We&apos;re here to help!
         </p>
 
         <form
@@ -71,10 +87,7 @@ export const ContactUs = () => {
           className="space-y-6 bg-white bg-opacity-80 p-6 rounded-lg shadow-lg"
         >
           <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-[#010D3E]"
-            >
+            <label htmlFor="name" className="block text-sm font-medium text-[#010D3E]">
               Name
             </label>
             <input
@@ -90,10 +103,7 @@ export const ContactUs = () => {
           </div>
 
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-[#010D3E]"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-[#010D3E]">
               Email
             </label>
             <input
@@ -109,10 +119,7 @@ export const ContactUs = () => {
           </div>
 
           <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-[#010D3E]"
-            >
+            <label htmlFor="message" className="block text-sm font-medium text-[#010D3E]">
               Message
             </label>
             <textarea

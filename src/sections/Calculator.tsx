@@ -3,28 +3,45 @@ import { useState } from "react";
 import { FaBox, FaBoxOpen, FaWarehouse } from "react-icons/fa";
 import { BsInfoCircle } from "react-icons/bs";
 
+interface FormData {
+  residents: string;
+  avgDeliveries: string;
+}
+
+interface Errors {
+  residents?: string;
+  avgDeliveries?: string;
+}
+
+interface Results {
+  total: number;
+  small: number;
+  medium: number;
+  large: number;
+}
+
 const LockerCalculator = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     residents: "",
     avgDeliveries: "",
   });
-  const [errors, setErrors] = useState({});
-  const [results, setResults] = useState(null);
-  const [showResults, setShowResults] = useState(false);
+  const [errors, setErrors] = useState<Errors>({});
+  const [results, setResults] = useState<Results | null>(null);
+  const [showResults, setShowResults] = useState<boolean>(false);
 
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.residents || formData.residents <= 0) {
+  const validateForm = (): boolean => {
+    const newErrors: Errors = {};
+    if (!formData.residents || Number(formData.residents) <= 0) {
       newErrors.residents = "Please enter a valid number of residents";
     }
-    if (!formData.avgDeliveries || formData.avgDeliveries < 0) {
+    if (!formData.avgDeliveries || Number(formData.avgDeliveries) < 0) {
       newErrors.avgDeliveries = "Please enter a valid average delivery number";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -35,11 +52,12 @@ const LockerCalculator = () => {
   const calculateLockers = () => {
     if (!validateForm()) return;
 
-    const dailyParcels = formData.residents * formData.avgDeliveries;
+    const dailyParcels =
+      Number(formData.residents) * Number(formData.avgDeliveries);
     const lockerUtilization = dailyParcels * 0.5;
     const peakDemand = Math.ceil(lockerUtilization * 1.1);
 
-    const results = {
+    const results: Results = {
       total: peakDemand,
       small: Math.ceil(peakDemand * 0.6),
       medium: Math.ceil(peakDemand * 0.3),
@@ -72,6 +90,7 @@ const LockerCalculator = () => {
           </p>
         </div>
 
+        {/* Form Fields */}
         <div className="space-y-6">
           <div>
             <label
@@ -128,76 +147,22 @@ const LockerCalculator = () => {
             )}
           </div>
 
+          {/* Buttons */}
           <div className="flex space-x-4">
             <button
               onClick={calculateLockers}
-              className="flex-1 bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="flex-1 bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200"
             >
               Calculate Locker Requirements
             </button>
             <button
               onClick={resetForm}
-              className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+              className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200"
             >
               Reset
             </button>
           </div>
         </div>
-
-        {showResults && results && (
-          <div className="animate-fade-in space-y-6 mt-8 p-6 bg-blue-50 rounded-lg">
-            <h2 className="text-2xl font-semibold text-blue-800 mb-4">
-              Recommended Locker Distribution
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white p-4 rounded-lg shadow-md">
-                <div className="flex items-center space-x-3 mb-2">
-                  <FaBox className="text-blue-500 text-xl" />
-                  <h3 className="text-lg font-semibold">Small Lockers</h3>
-                </div>
-                <p className="text-3xl font-bold text-blue-600">
-                  {results.small}
-                </p>
-                <p className="text-gray-600 text-sm">60% of total capacity</p>
-              </div>
-
-              <div className="bg-white p-4 rounded-lg shadow-md">
-                <div className="flex items-center space-x-3 mb-2">
-                  <FaBoxOpen className="text-blue-500 text-xl" />
-                  <h3 className="text-lg font-semibold">Medium Lockers</h3>
-                </div>
-                <p className="text-3xl font-bold text-blue-600">
-                  {results.medium}
-                </p>
-                <p className="text-gray-600 text-sm">30% of total capacity</p>
-              </div>
-
-              <div className="bg-white p-4 rounded-lg shadow-md">
-                <div className="flex items-center space-x-3 mb-2">
-                  <FaWarehouse className="text-blue-500 text-xl" />
-                  <h3 className="text-lg font-semibold">Large Lockers</h3>
-                </div>
-                <p className="text-3xl font-bold text-blue-600">
-                  {results.large}
-                </p>
-                <p className="text-gray-600 text-sm">10% of total capacity</p>
-              </div>
-            </div>
-
-            <div className="mt-6 p-4 bg-white rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-blue-800 mb-2">
-                Total Lockers Required
-              </h3>
-              <p className="text-4xl font-bold text-blue-600">
-                {results.total}
-              </p>
-              <p className="text-gray-600 mt-2">
-                Based on peak demand calculation with 10% buffer
-              </p>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );

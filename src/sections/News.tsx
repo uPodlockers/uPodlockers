@@ -1,79 +1,74 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaShareAlt, FaLinkedin, FaTwitter, FaFacebook, FaEnvelope, FaClock } from "react-icons/fa";
 
-const CompanyNews = () => {
-  const [showShareModal, setShowShareModal] = useState(false);
-  const [selectedArticle, setSelectedArticle] = useState(null);
+interface Article {
+  id: number;
+  title: string;
+  imageUrl: string;
+  description: string;
+  date: string;
+  readTime: string;
+  category: string;
+}
 
-  const newsData = [
-    {
-      id: 1,
-      title: "Revolutionizing Technology: The Next Big Innovation in Tech Industry",
-      imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-      description: "Exploring the latest technological breakthroughs and their impact on the future of digital transformation in the corporate world.",
-      date: "2024-01-15",
-      readTime: "5 min read",
-      category: "Technology"
-    },
-    {
-      id: 2,
-      title: "Sustainable Business Practices: A Guide to Green Operations",
-      imageUrl: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09",
-      description: "Companies are increasingly adopting eco-friendly practices to reduce their carbon footprint and promote sustainability.",
-      date: "2024-01-14",
-      readTime: "4 min read",
-      category: "Sustainability"
-    },
-    {
-      id: 3,
-      title: "Global Market Trends: Analyzing Economic Shifts",
-      imageUrl: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f",
-      description: "Understanding the current market dynamics and preparing for future economic challenges in the global business landscape.",
-      date: "2024-01-13",
-      readTime: "6 min read",
-      category: "Finance"
-    },
-    {
-      id: 4,
-      title: "Remote Work Revolution: Adapting to the New Normal",
-      imageUrl: "https://images.unsplash.com/photo-1521898284481-a5ec348cb555",
-      description: "How companies are embracing remote work culture and implementing effective strategies for virtual collaboration.",
-      date: "2024-01-12",
-      readTime: "3 min read",
-      category: "Workplace"
-    }
-  ];
+const newsData: Article[] = [
+  {
+    id: 1,
+    title: "Revolutionizing Technology: The Next Big Innovation in Tech Industry",
+    imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    description: "Exploring the latest technological breakthroughs and their impact on the future of digital transformation in the corporate world.",
+    date: "2024-01-15",
+    readTime: "5 min read",
+    category: "Technology"
+  },
+  {
+    id: 2,
+    title: "Sustainable Business Practices: A Guide to Green Operations",
+    imageUrl: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09",
+    description: "Companies are increasingly adopting eco-friendly practices to reduce their carbon footprint and promote sustainability.",
+    date: "2024-01-14",
+    readTime: "4 min read",
+    category: "Sustainability"
+  },
+  {
+    id: 3,
+    title: "Global Market Trends: Analyzing Economic Shifts",
+    imageUrl: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f",
+    description: "Understanding the current market dynamics and preparing for future economic challenges in the global business landscape.",
+    date: "2024-01-13",
+    readTime: "6 min read",
+    category: "Finance"
+  },
+  {
+    id: 4,
+    title: "Remote Work Revolution: Adapting to the New Normal",
+    imageUrl: "https://images.unsplash.com/photo-1521898284481-a5ec348cb555",
+    description: "How companies are embracing remote work culture and implementing effective strategies for virtual collaboration.",
+    date: "2024-01-12",
+    readTime: "3 min read",
+    category: "Workplace"
+  }
+];
 
-  const ShareModal = ({ article, onClose }) => (
+const ShareModal: React.FC<{ article: Article; onClose: () => void }> = ({ article, onClose }) => {
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [onClose]);
+
+  return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 max-w-sm w-full">
         <h3 className="text-xl font-bold mb-4">Share Article</h3>
         <div className="flex justify-around mb-4">
-          <button
-            aria-label="Share on LinkedIn"
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-          >
-            <FaLinkedin className="text-2xl text-blue-600" />
-          </button>
-          <button
-            aria-label="Share on Twitter"
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-          >
-            <FaTwitter className="text-2xl text-blue-400" />
-          </button>
-          <button
-            aria-label="Share on Facebook"
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-          >
-            <FaFacebook className="text-2xl text-blue-800" />
-          </button>
-          <button
-            aria-label="Share via Email"
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-          >
-            <FaEnvelope className="text-2xl text-gray-600" />
-          </button>
+          <FaLinkedin className="text-2xl text-blue-600 cursor-pointer" aria-label="Share on LinkedIn" />
+          <FaTwitter className="text-2xl text-blue-400 cursor-pointer" aria-label="Share on Twitter" />
+          <FaFacebook className="text-2xl text-blue-800 cursor-pointer" aria-label="Share on Facebook" />
+          <FaEnvelope className="text-2xl text-gray-600 cursor-pointer" aria-label="Share via Email" />
         </div>
         <button
           onClick={onClose}
@@ -84,18 +79,24 @@ const CompanyNews = () => {
       </div>
     </div>
   );
+};
 
-  const NewsCard = React.memo(({ article }) => (
-    <article className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:transform hover:scale-[1.02]">
+const NewsCard: React.FC<{ article: Article; onShare: (article: Article) => void }> = React.memo(({ article, onShare }) => {
+  const [imgSrc, setImgSrc] = useState(article.imageUrl);
+
+  const handleImageError = () => {
+    setImgSrc("https://images.unsplash.com/photo-1584824486509-112e4181ff6b");
+  };
+
+  return (
+    <article className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-[1.02]">
       <div className="relative pb-[56.25%]">
         <img
-          src={article.imageUrl}
+          src={imgSrc}
           alt={article.title}
           className="absolute top-0 left-0 w-full h-full object-cover transition-transform hover:scale-105"
           loading="lazy"
-          onError={(e) => {
-            e.target.src = "https://images.unsplash.com/photo-1584824486509-112e4181ff6b";
-          }}
+          onError={handleImageError}
         />
       </div>
       <div className="p-6">
@@ -106,22 +107,14 @@ const CompanyNews = () => {
             {article.readTime}
           </div>
         </div>
-        <h2 className="text-xl font-bold mb-3 text-gray-800 line-clamp-2">
-          {article.title}
-        </h2>
+        <h2 className="text-xl font-bold mb-3 text-gray-800 line-clamp-2">{article.title}</h2>
         <p className="text-gray-600 mb-4 line-clamp-3">{article.description}</p>
         <div className="flex justify-between items-center">
-          <button
-            onClick={() => setSelectedArticle(article)}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-          >
+          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
             Read More
           </button>
           <button
-            onClick={() => {
-              setSelectedArticle(article);
-              setShowShareModal(true);
-            }}
+            onClick={() => onShare(article)}
             aria-label="Share article"
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
           >
@@ -130,7 +123,17 @@ const CompanyNews = () => {
         </div>
       </div>
     </article>
-  ));
+  );
+});
+
+const CompanyNews: React.FC = () => {
+  const [showShareModal, setShowShareModal] = useState(false);
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+
+  const handleShare = (article: Article) => {
+    setSelectedArticle(article);
+    setShowShareModal(true);
+  };
 
   return (
     <div id="news" className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -143,7 +146,7 @@ const CompanyNews = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {newsData.map((article) => (
-              <NewsCard key={article.id} article={article} />
+              <NewsCard key={article.id} article={article} onShare={handleShare} />
             ))}
           </div>
         )}
