@@ -2,7 +2,23 @@
 import React, { memo } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
-const sectorData = {
+interface SectorData {
+  title: string;
+  quote: string;
+  description: string;
+  benefits: string[];
+  epilogue: string;
+  image: string;
+  bgColor: string;
+  accentColor: string;
+}
+
+interface SolutionCardProps {
+  sector: string;
+  id: string;
+}
+
+const sectorData: Record<string, SectorData> = {
   universities: {
     title: "Smart Parcel Lockers for Universities",
     quote:
@@ -34,7 +50,8 @@ const sectorData = {
     ],
     epilogue:
       "Upgrade your office with a smarter, more organized approach to parcel management and asset transfers.",
-    image: "https://plus.unsplash.com/premium_photo-1670315264879-59cc6b15db5f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image:
+      "https://plus.unsplash.com/premium_photo-1670315264879-59cc6b15db5f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bgColor: "bg-gray-50",
     accentColor: "text-gray-600",
   },
@@ -107,8 +124,7 @@ const sectorData = {
     accentColor: "text-red-600",
   },
 };
-
-const SolutionCard = memo(
+const SolutionCard: React.FC<SolutionCardProps> = memo(
   ({ sector = "universities", id = "universities" }) => {
     const data = sectorData[sector] || sectorData.universities;
 
@@ -126,7 +142,7 @@ const SolutionCard = memo(
               className="w-full h-full object-cover"
               loading="lazy"
               onError={(e) => {
-                e.target.src =
+                (e.target as HTMLImageElement).src =
                   "https://images.unsplash.com/photo-1603366615917-1fa6dad5c4fa";
               }}
             />
@@ -150,9 +166,11 @@ const SolutionCard = memo(
             </div>
 
             <div className="space-y-3">
-              <h3 className="text-xl font-semibold text-gray-800">Key Benefits</h3>
+              <h3 className="text-xl font-semibold text-gray-800">
+                Key Benefits
+              </h3>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {data.benefits.map((benefit, index) => (
+                {data.benefits.map((benefit: string, index: number) => (
                   <li
                     key={index}
                     className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors duration-200"
@@ -175,7 +193,6 @@ const SolutionCard = memo(
     );
   }
 );
-
 
 SolutionCard.displayName = "SolutionCard";
 
