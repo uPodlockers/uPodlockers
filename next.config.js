@@ -7,11 +7,13 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  output: "export",
-  distDir: "dist",
+  output: 'export',
+  reactStrictMode: true,
   images: {
     unoptimized: true,
   },
+  distDir: "dist",
+
   assetPrefix: isProd ? "/uPodlockers/" : "", // Use your repo name here
   basePath: isProd ? "/uPodlockers" : "", // Use your repo name here
   webpack(config) {
