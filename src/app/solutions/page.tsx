@@ -1,3 +1,5 @@
+"use client";
+
 import { Header } from "@/sections/Header";
 import { SolutionComponent } from "@/sections/Solution";
 import { Footer } from "@/sections/Footer";
