@@ -1,3 +1,5 @@
+"use client";
+
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
