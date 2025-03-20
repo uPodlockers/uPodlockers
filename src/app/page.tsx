@@ -1,3 +1,4 @@
+"use client";
 import { Header } from "@/sections/Header";
 import { Hero } from "@/sections/Hero";
 import { About } from "@/sections/about"; // Corrected import for the About component
