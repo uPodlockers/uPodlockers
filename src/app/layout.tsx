@@ -6,11 +6,13 @@ import Navbar from "@/components/Navbar"; // Import global Navbar
 import { Footer } from "@/sections/Footer"; // Import global Footer
 import "./globals.css"; // Global styles
 
+import { Metadata } from 'next'
+
 // Applying the DM_Sans font with latin subset
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
 // Define the page metadata, used for SEO, title, etc.
-export const metadata = {
+export const metadata: Metadata = {
   title: "upod smart lockers",
   description:
     "Solving last-mile delivery issues by making affordable smart parcel lockers",
