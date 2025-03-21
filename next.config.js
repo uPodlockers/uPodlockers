@@ -3,6 +3,8 @@
  */
 const isProd = process.env.NODE_ENV === "production";
 
+const repoName = 'uPodlockers';
+
 const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
@@ -13,11 +15,9 @@ const nextConfig = {
     unoptimized: true,
   },
   distDir: "dist",
-
-  assetPrefix: isProd ? "/uPodlockers/" : "", // Use your repo name here
-  basePath: isProd ? "/uPodlockers" : "", // Use your repo name here
+  assetPrefix: isProd ? `/${repoName}/` : "",   
+  basePath: isProd ? `/${repoName}` : "",       
   webpack(config) {
-    // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")
     );
