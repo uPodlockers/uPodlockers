@@ -14,8 +14,8 @@ const nextConfig = {
   },
   distDir: "dist",
 
-  assetPrefix: isProd ? "/uPodlockers/" : "", // Use your repo name here
-  basePath: isProd ? "/uPodlockers" : "", // Use your repo name here
+  // assetPrefix: isProd ? "/uPodlockers/" : "", // Use your repo name here
+  // basePath: isProd ? "/uPodlockers" : "", // Use your repo name here
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
