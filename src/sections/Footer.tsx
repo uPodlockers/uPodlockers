@@ -47,25 +47,25 @@ export const Footer = () => {
               </a>
               <div className="ml-4">
                 <a
-                  href="/product/#how_it_works"
+                  href="/product#how_it_works"
                   className="hover:text-blue-500 block"
                 >
                   How it Works?
                 </a>
                 <a
-                  href="/product/#why_us"
+                  href="/product#why_us"
                   className="hover:text-blue-500 block"
                 >
                   Why UPOD?
                 </a>
                 <a
-                  href="/product/#models"
+                  href="/product#models"
                   className="hover:text-blue-500 block"
                 >
                   Our Models
                 </a>
                 <a
-                  href="/product/#calculator"
+                  href="/product#calculator"
                   className="hover:text-blue-500 block"
                 >
                   Capacity Calculator
@@ -81,37 +81,37 @@ export const Footer = () => {
               </a>
               <div className="ml-4">
                 <a
-                  href="/solutions/#residents"
+                  href="/solutions#residents"
                   className="hover:text-blue-500 block"
                 >
                   Residential
                 </a>
                 <a
-                  href="/solutions/#universities"
+                  href="/solutions#universities"
                   className="hover:text-blue-500 block"
                 >
                   Universities
                 </a>
                 <a
-                  href="/solutions/#banks"
+                  href="/solutions#banks"
                   className="hover:text-blue-500 block"
                 >
                   Banks
                 </a>
                 <a
-                  href="/solutions/#offices"
+                  href="/solutions#offices"
                   className="hover:text-blue-500 block"
                 >
                   Offices
                 </a>
                 <a
-                  href="/solutions/#ecommerce"
+                  href="/solutions#ecommerce"
                   className="hover:text-blue-500 block"
                 >
                   E-Commerce
                 </a>
                 <a
-                  href="/solutions/#hospitals"
+                  href="/solutions#hospitals"
                   className="hover:text-blue-500 block"
                 >
                   Hospitals
@@ -125,7 +125,7 @@ export const Footer = () => {
                 Company
               </a>
               <div className="ml-4">
-                <a href="/company/#us" className="hover:text-blue-500 block">
+                <a href="/company#us" className="hover:text-blue-500 block">
                   About Us
                 </a>
                 {/* 
